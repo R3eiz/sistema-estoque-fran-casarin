@@ -819,7 +819,7 @@ function renderTableGrouped(def, container, rows){
     groups[dataKey].forEach(x=>{
       html += `<tr>`;
       def.columns.forEach(c=> html += `<td>${c.render(x.r)}</td>`);
-      if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar">?</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir">?</button></td>`;
+      if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar" aria-label="Editar">✎</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir" aria-label="Excluir">✕</button></td>`;
       html += `</tr>`;
     });
     html += `</tbody></table>`;
