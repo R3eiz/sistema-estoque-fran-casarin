@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 import { installCloudSync, loadLegacyDB, STORAGE_KEY } from "../lib/estoqueSync";
@@ -23,6 +23,10 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetVersion = process.env.NEXT_PUBLIC_APP_VERSION ?? "local";
 const defaultEmail = "reinan3323@gmail.com";
 
+const LegacyHost = memo(function LegacyHost({ markup }: { markup: string }) {
+  return <div dangerouslySetInnerHTML={{ __html: markup }} />;
+});
+
 export default function LegacyStockSystem() {
   const [markup, setMarkup] = useState("");
   const [session, setSession] = useState<Session | null>(null);
@@ -31,7 +35,7 @@ export default function LegacyStockSystem() {
   const [email, setEmail] = useState(defaultEmail);
   const [password, setPassword] = useState("");
   const [authMessage, setAuthMessage] = useState("");
-  const [cloudStatus, setCloudStatus] = useState("Banco em tempo real ativo");
+  const [toast, setToast] = useState("");
 
   useEffect(() => {
     let alive = true;
@@ -66,12 +70,11 @@ export default function LegacyStockSystem() {
         const cloudDB = await loadLegacyDB(supabase);
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cloudDB));
         channel = installCloudSync(supabase, user, async () => {
-          setCloudStatus("Sincronizando mudanca de outro acesso...");
           const freshDB = await loadLegacyDB(supabase);
           window.localStorage?.setItem(STORAGE_KEY, JSON.stringify(freshDB));
           if (window.__estoqueLegacy) {
             window.__estoqueLegacy.replaceDB(freshDB);
-            setCloudStatus("Tela atualizada pelo banco em tempo real");
+            showToast("Atualizado");
           }
         });
 
@@ -94,9 +97,8 @@ export default function LegacyStockSystem() {
 
     const statusListener = (event: Event) => {
       const detail = (event as CustomEvent<{ status: string; message?: string }>).detail;
-      if (detail.status === "salvando") setCloudStatus("Salvando alteracoes no Supabase...");
-      if (detail.status === "salvo") setCloudStatus("Alteracoes salvas no Supabase");
-      if (detail.status === "erro") setCloudStatus(detail.message ? `Falha ao salvar: ${detail.message}` : "Falha ao salvar no Supabase");
+      if (detail.status === "salvo") showToast("Salvo");
+      if (detail.status === "erro") showToast(detail.message ? `Falha ao salvar: ${detail.message}` : "Falha ao salvar");
     };
     window.addEventListener("estoque-cloud-status", statusListener);
 
@@ -107,13 +109,33 @@ export default function LegacyStockSystem() {
     };
   }, [session]);
 
-  useEffect(() => {
-    if (!markup || window.__estoqueFranCasarinLoaded) return;
+  function showToast(message: string) {
+    setToast(message);
+    window.clearTimeout((window as any).__estoqueToastTimer);
+    (window as any).__estoqueToastTimer = window.setTimeout(() => setToast(""), 2200);
+  }
 
-    window.__estoqueFranCasarinLoaded = true;
+  useEffect(() => {
+    if (!markup) return;
+    if (window.__estoqueLegacy) {
+      window.__estoqueLegacy.render();
+      return;
+    }
+
+    document.getElementById("legacy-stock-script")?.remove();
+    window.__estoqueFranCasarinLoaded = false;
     const script = document.createElement("script");
+    script.id = "legacy-stock-script";
     script.src = `${basePath}/legacy-app.js?v=${assetVersion}`;
     script.async = false;
+    script.onload = () => {
+      window.__estoqueFranCasarinLoaded = true;
+      window.__estoqueLegacy?.render();
+    };
+    script.onerror = () => {
+      window.__estoqueFranCasarinLoaded = false;
+      showToast("Erro ao abrir o sistema");
+    };
     document.body.appendChild(script);
   }, [markup]);
 
@@ -204,12 +226,14 @@ export default function LegacyStockSystem() {
 
   return (
     <>
-      <div className="cloud-status">
-        <span>{cloudStatus}</span>
+      <div className="session-pill">
         <span>{session.user.email}</span>
         <button type="button" onClick={handleLogout}>Sair</button>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: markup }} />
+      <LegacyHost markup={markup} />
+      <div className={`save-toast ${toast ? "show" : ""}`} role="status" aria-live="polite">
+        {toast}
+      </div>
     </>
   );
 }
