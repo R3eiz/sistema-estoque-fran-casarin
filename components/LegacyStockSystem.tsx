@@ -20,6 +20,7 @@ declare global {
 }
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const assetVersion = process.env.NEXT_PUBLIC_APP_VERSION ?? "local";
 const defaultEmail = "reinan3323@gmail.com";
 
 export default function LegacyStockSystem() {
@@ -74,7 +75,7 @@ export default function LegacyStockSystem() {
           }
         });
 
-        const response = await fetch(`${basePath}/legacy-body.html`);
+        const response = await fetch(`${basePath}/legacy-body.html?v=${assetVersion}`, { cache: "no-store" });
         if (!response.ok) throw new Error("Nao foi possivel carregar a interface.");
         const html = await response.text();
         if (!cancelled) {
@@ -111,7 +112,7 @@ export default function LegacyStockSystem() {
 
     window.__estoqueFranCasarinLoaded = true;
     const script = document.createElement("script");
-    script.src = `${basePath}/legacy-app.js`;
+    script.src = `${basePath}/legacy-app.js?v=${assetVersion}`;
     script.async = false;
     document.body.appendChild(script);
   }, [markup]);

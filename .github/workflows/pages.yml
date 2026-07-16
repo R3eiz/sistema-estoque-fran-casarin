@@ -20,6 +20,7 @@ jobs:
     env:
       NEXT_PUBLIC_SUPABASE_URL: https://zkoioxykpygfacvcozpk.supabase.co
       NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_mvevJTMhzpHIjM0LuYYS9g_6IWl9hn1
+      NEXT_PUBLIC_APP_VERSION: ${{ github.sha }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
