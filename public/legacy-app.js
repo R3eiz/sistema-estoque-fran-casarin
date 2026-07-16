@@ -101,6 +101,9 @@ function saveDB(){
   catch(e){
     if(storageAvailable){ storageAvailable = false; showStorageWarning(); }
   }
+  if(window.__estoqueCloudSync && typeof window.__estoqueCloudSync.save === 'function'){
+    window.__estoqueCloudSync.save(db);
+  }
 }
 function showStorageWarning(){
   const w = document.createElement('div');
