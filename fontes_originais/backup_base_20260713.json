@@ -1,0 +1,134 @@
+{
+  "brutos": [],
+  "fracionados": [],
+  "locais": [
+    {
+      "nome": "Central de Distribuição",
+      "tipo": "Central",
+      "responsavel": "Igor Morgado"
+    },
+    {
+      "nome": "Buffet Fran Casaria",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Sushi",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Restaurante Arboreto",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Cozinha de Produção de Fracionados",
+      "tipo": "Fracionamento",
+      "responsavel": ""
+    },
+    {
+      "nome": "Pizza",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    }
+  ],
+  "entradasCentral": [],
+  "saidasCentral": [
+    {
+      "data": "2026-07-04",
+      "documento": "SC-001",
+      "produto": "Salmão Fresco",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 25
+    },
+    {
+      "data": "2026-07-04",
+      "documento": "SC-002",
+      "produto": "Arroz Japonês",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 20
+    },
+    {
+      "data": "2026-07-05",
+      "documento": "SC-003",
+      "produto": "Filé de Frango",
+      "destino": "Restaurante Arboreto",
+      "quantidade": 15
+    },
+    {
+      "data": "2026-07-05",
+      "documento": "SC-004",
+      "produto": "Tomate",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 12
+    },
+    {
+      "data": "2026-07-06",
+      "documento": "SC-005",
+      "produto": "Alface Americana",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 10
+    },
+    {
+      "data": "2026-07-06",
+      "documento": "SC-006",
+      "produto": "Filé de Frango",
+      "destino": "Buffet Fran Casaria",
+      "quantidade": 5
+    },
+    {
+      "data": "2026-07-13",
+      "documento": "01",
+      "produto": "BISC ANA JULIA ROSCA NATA POTE",
+      "destino": "Buffet Fran Casaria",
+      "quantidade": 5
+    },
+    {
+      "data": "2026-07-13",
+      "documento": "02",
+      "produto": "Filé de Frango",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 4
+    },
+    {
+      "data": "2026-07-13",
+      "documento": "",
+      "produto": "Tomate",
+      "destino": "Cozinha de Produção de Fracionados",
+      "quantidade": 5
+    }
+  ],
+  "producoes": [],
+  "saidasFracionado": [],
+  "pedidosFeitos": {
+    "compra_Alface Americana_2026-07-09": false,
+    "compra_Arroz Japonês_2026-07-09": false,
+    "compra_Arroz Japonês_2026-07-13": false
+  },
+  "categorias": [
+    {
+      "nome": "Peixes e Frutos do Mar"
+    },
+    {
+      "nome": "Grãos e Cereais"
+    },
+    {
+      "nome": "Hortifruti"
+    },
+    {
+      "nome": "Carnes"
+    },
+    {
+      "nome": "Laticínios"
+    },
+    {
+      "nome": "Outros"
+    },
+    {
+      "nome": "Bebidas"
+    }
+  ],
+  "_exportadoEm": "2026-07-13T20:10:57.373Z",
+  "_sistema": "Sistema de Estoque Fran Casarin"
+}

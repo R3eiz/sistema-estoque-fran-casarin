@@ -1,0 +1,2108 @@
+{
+  "categorias": [
+    {
+      "nome": "Peixes e Frutos do Mar"
+    },
+    {
+      "nome": "Grãos e Cereais"
+    },
+    {
+      "nome": "Hortifruti"
+    },
+    {
+      "nome": "Carnes"
+    },
+    {
+      "nome": "Laticínios"
+    },
+    {
+      "nome": "Outros"
+    },
+    {
+      "nome": "Bebidas"
+    }
+  ],
+  "brutos": [
+    {
+      "nome": "Alcachofra In Natura",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 2.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Amora Congelada",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 4.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Aparas de Salmão",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Bacalhau Desfiado",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 1.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Baicon Fatiado",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Baicon Feijoada",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Fina Buffet",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Rústica Simples Buffet",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Bisteca Bovina",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Bolinha de Queijo",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 6.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Calabresa Feijoada",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 6.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão 16/20",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão 41/50",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão 61/70",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Carne Moída Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Carne Seca",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Carpaccio de Filé Fatiado",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Costela Desfiada",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Costela Inteira",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Costelinha Feijoada",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Costelinha Suina",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Coxa e Sobrecoxa com Osso",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Coxa e Sobrecoxa Desossada",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 20.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Crean Cheese Bisnaga",
+      "categoria": "Laticínios",
+      "unidade": "UN",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Ervilha Congelada",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Espeto de Carne",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Espeto de Frango",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filezinho Suíno Temperado",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Peito de Frango Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 20.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Pintado",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Tilápia",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé em Cubos Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé Medalhão Buffet",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 250.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé Roll Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé Strogonoff Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Fraldinha Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 20.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Frango Kiev",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 250.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Frango Recheio",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Frutas Vermelhas",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Hambúrguer Gourmet 240g",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Joelho de Porco Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Leitão Inteiro",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Linguiça Caseira Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Linguiça Toscana Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Lombo Canadense",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Lombo de Bacalhau",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Lombo Suíno Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Lula",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Maminha Buffet",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 20.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mandioca Buffet",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Manteiga Nacional sem Sal",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa de Pastel Quadrada",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa de Pastel Redonda",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa de Pizza",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 50.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa Filo",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 20.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa Pastel Quadrada",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Massa Vol Au Vent",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mexilhão com Casca",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mexilhão sem Casca",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mini Churros",
+      "categoria": "Outros",
+      "unidade": "KG",
+      "estoqueMinimo": 6.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mini Coxinha de Frango",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 6.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mini Pão de Queijo",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mini Quibe",
+      "categoria": "Outros",
+      "unidade": "KG",
+      "estoqueMinimo": 9.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Morango Congelado",
+      "categoria": "Hortifruti",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Orelha de Porco",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Ovos em Caixa",
+      "categoria": "Laticínios",
+      "unidade": "CX",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Parmegiana de Filé Buffet",
+      "categoria": "Carnes",
+      "unidade": "UN",
+      "estoqueMinimo": 100.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Peito de Perú",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pernil Defumado Baicon (kg )",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Picanha Bovina",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Picanha Suína (kg )",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pão Libanês 650g",
+      "categoria": "Grãos e Cereais",
+      "unidade": "UN",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pé de Porco",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Brie",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Cheddar Fatiado",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Gorgonzola",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 3.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Mussarela Barra",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 15.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Parmesão",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 10.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Queijo Provolone",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Rabo de Porco",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Requeijão Cremoso Bisnaga",
+      "categoria": "Laticínios",
+      "unidade": "UN",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Ricota Fresca",
+      "categoria": "Laticínios",
+      "unidade": "KG",
+      "estoqueMinimo": 0.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Salmão Grelhado Congelado",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Salsicha",
+      "categoria": "Carnes",
+      "unidade": "KG",
+      "estoqueMinimo": 5.0,
+      "fornecedor": "",
+      "precoMedio": 0,
+      "validadeDias": 0
+    }
+  ],
+  "fracionados": [
+    {
+      "nome": "Batata Espiral 150 G",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Fina Restaurante 150 G",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 20.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Grossa Restaurante 500g",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 20.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Rústica Simples Restaurante 150 G",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Rústica Temperada 150 G",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 20.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Batata Rústica Temperada 350g",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 20.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Bife Ancho 480g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 20.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão 41/50 Para Risoto",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão Mercadinho 250g",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão Para Empanar Restaurante 12 Und",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Camarão Para Risoto Decoração 3 Und",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Carré de Cordeiro",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Ceviche de Salmão Restaurante 150g",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Croqueta de Costela Desfiada",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé (480)g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Frango Adulto 150 G",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Frango Kids 100g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 15.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé de Salmão Individual Restaurante 240g",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé em Cubos Restaurante 100 G",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 15.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé Kids Restaurante 100g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 15.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé Strogonoff Restaurante 100g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Filé À Parmegiana Restaurante 400g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Frango em Cubo Restaurantes 80g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Isca de Filé Restaurante 500g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Isca de Frango Restaurante 350g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Isca de Tilápia Restaurante 350g",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Linguiça Tipo Calabresa",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 2.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Linguiça Tipo Paio",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Mandioca Restaurante Cozida 500g",
+      "categoria": "Hortifruti",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 5.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Panceta 500g",
+      "categoria": "Carnes",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pescada Amarela Restaurante 500g",
+      "categoria": "Peixes e Frutos do Mar",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 0.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pão de Hambúrguer",
+      "categoria": "Grãos e Cereais",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 10.0,
+      "validadeDias": 0
+    },
+    {
+      "nome": "Pão Mini Hambúrguer",
+      "categoria": "Grãos e Cereais",
+      "unidade": "PCT",
+      "origem": "",
+      "rendimento": 100,
+      "estoqueMinimo": 15.0,
+      "validadeDias": 0
+    }
+  ],
+  "locais": [
+    {
+      "nome": "Central de Distribuição",
+      "tipo": "Central",
+      "responsavel": "Igor Morgado"
+    },
+    {
+      "nome": "Buffet Fran Casaria",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Sushi",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Restaurante Arboreto",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    },
+    {
+      "nome": "Cozinha de Produção de Fracionados",
+      "tipo": "Fracionamento",
+      "responsavel": ""
+    },
+    {
+      "nome": "Pizza",
+      "tipo": "Consumidor",
+      "responsavel": ""
+    }
+  ],
+  "entradasCentral": [
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Alcachofra In Natura",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 6.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Amora Congelada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 7.05,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Aparas de Salmão",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 47.5,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Bacalhau Desfiado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 2.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Baicon Fatiado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.4,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Baicon Feijoada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 20.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Batata Fina Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 33.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Batata Rústica Simples Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 58.3,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Bisteca Bovina",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.2,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Bolinha de Queijo",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Calabresa Feijoada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 6.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Camarão 16/20",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Camarão 41/50",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 18.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Camarão 61/70",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Carne Moída Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.4,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Carne Seca",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.25,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Carpaccio de Filé Fatiado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 50.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Costela Desfiada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.75,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Costela Inteira",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.385,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Costelinha Feijoada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Costelinha Suina",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 7.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Coxa e Sobrecoxa com Osso",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.3,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Coxa e Sobrecoxa Desossada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 96.85,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Crean Cheese Bisnaga",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 13.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Ervilha Congelada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 2.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Espeto de Carne",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 348.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Espeto de Frango",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 132.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filezinho Suíno Temperado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 2.3,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé de Peito de Frango Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 63.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé de Pintado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé de Tilápia",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.05,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé em Cubos Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.65,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé Medalhão Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 380.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé Roll Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 28.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Filé Strogonoff Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 50.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Fraldinha Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 84.61,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Frango Kiev",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 315.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Frango Recheio",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 1.16,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Frutas Vermelhas",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 19.6,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Hambúrguer Gourmet 240g",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 42.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Joelho de Porco Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 4.5,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Leitão Inteiro",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 20.85,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Linguiça Caseira Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 16.2,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Linguiça Toscana Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Lombo Canadense",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 73.24,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Lombo de Bacalhau",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 9.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Lombo Suíno Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 24.8,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Lula",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Maminha Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 37.014,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mandioca Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 36.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Manteiga Nacional sem Sal",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 12.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa de Pastel Quadrada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa de Pastel Redonda",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 4.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa de Pizza",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 205.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa Filo",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 25.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa Pastel Quadrada",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Massa Vol Au Vent",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 2.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mexilhão com Casca",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 1.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mexilhão sem Casca",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 1.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mini Churros",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mini Coxinha de Frango",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 22.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mini Pão de Queijo",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 13.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Mini Quibe",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 6.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Morango Congelado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Orelha de Porco",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 33.35,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Ovos em Caixa",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 22.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Parmegiana de Filé Buffet",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 240.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Peito de Perú",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 2.79,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Pernil Defumado Baicon (kg )",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 52.5,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Picanha Bovina",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 4.9,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Picanha Suína (kg )",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 4.5,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Pão Libanês 650g",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 5.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Pé de Porco",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 17.45,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Brie",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.9,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Cheddar Fatiado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 3.75,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Gorgonzola",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.5,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Mussarela Barra",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 39.34,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Parmesão",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 44.65,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Queijo Provolone",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 11.55,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Rabo de Porco",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 18.85,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Requeijão Cremoso Bisnaga",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 15.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Ricota Fresca",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 8.9,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Salmão Grelhado Congelado",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 12.0,
+      "precoUnitario": 0,
+      "validade": ""
+    },
+    {
+      "data": "2026-07-14",
+      "nf": "SALDO-INICIAL",
+      "produto": "Salsicha",
+      "fornecedor": "Saldo Inicial (Importação TOTVS)",
+      "quantidade": 10.0,
+      "precoUnitario": 0,
+      "validade": ""
+    }
+  ],
+  "saidasCentral": [],
+  "producoes": [
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Espiral 150 G",
+      "quantidadeProduzida": 252.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Fina Restaurante 150 G",
+      "quantidadeProduzida": 10.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Grossa Restaurante 500g",
+      "quantidadeProduzida": 95.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Rústica Simples Restaurante 150 G",
+      "quantidadeProduzida": 21.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Rústica Temperada 150 G",
+      "quantidadeProduzida": 102.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Batata Rústica Temperada 350g",
+      "quantidadeProduzida": 72.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Bife Ancho 480g",
+      "quantidadeProduzida": 72.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Camarão 41/50 Para Risoto",
+      "quantidadeProduzida": 6.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Camarão Mercadinho 250g",
+      "quantidadeProduzida": 26.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Camarão Para Empanar Restaurante 12 Und",
+      "quantidadeProduzida": 30.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Camarão Para Risoto Decoração 3 Und",
+      "quantidadeProduzida": 28.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Carré de Cordeiro",
+      "quantidadeProduzida": 26.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Ceviche de Salmão Restaurante 150g",
+      "quantidadeProduzida": 16.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Croqueta de Costela Desfiada",
+      "quantidadeProduzida": 13.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé (480)g",
+      "quantidadeProduzida": 24.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé de Frango Adulto 150 G",
+      "quantidadeProduzida": 6.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé de Frango Kids 100g",
+      "quantidadeProduzida": 39.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé de Salmão Individual Restaurante 240g",
+      "quantidadeProduzida": 7.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé em Cubos Restaurante 100 G",
+      "quantidadeProduzida": 138.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé Kids Restaurante 100g",
+      "quantidadeProduzida": 178.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé Strogonoff Restaurante 100g",
+      "quantidadeProduzida": 159.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Filé À Parmegiana Restaurante 400g",
+      "quantidadeProduzida": 62.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Frango em Cubo Restaurantes 80g",
+      "quantidadeProduzida": 14.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Isca de Filé Restaurante 500g",
+      "quantidadeProduzida": 15.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Isca de Frango Restaurante 350g",
+      "quantidadeProduzida": 15.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Isca de Tilápia Restaurante 350g",
+      "quantidadeProduzida": 24.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Linguiça Tipo Calabresa",
+      "quantidadeProduzida": 13.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Linguiça Tipo Paio",
+      "quantidadeProduzida": 6.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Mandioca Restaurante Cozida 500g",
+      "quantidadeProduzida": 15.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Panceta 500g",
+      "quantidadeProduzida": 30.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Pescada Amarela Restaurante 500g",
+      "quantidadeProduzida": 42.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Pão de Hambúrguer",
+      "quantidadeProduzida": 15.0
+    },
+    {
+      "data": "2026-07-14",
+      "produtoBruto": "",
+      "quantidadeUtilizada": 0,
+      "produtoFracionado": "Pão Mini Hambúrguer",
+      "quantidadeProduzida": 79.0
+    }
+  ],
+  "saidasFracionado": [],
+  "pedidosFeitos": {}
+}

@@ -1,0 +1,4033 @@
+{
+ "brutos": [
+  {
+   "nome": "Arroz Koblenz - 5 kg",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cappuccino",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sal - 1KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Palmito Gr - 800G",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Óleo",
+   "categoria": "Mercearia",
+   "unidade": "G",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Folha de Louro - 160G",
+   "categoria": "Temperos",
+   "unidade": "G",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Feijão Preto",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Azeite de Oliva",
+   "categoria": "Mercearia",
+   "unidade": "ML",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Arroz Arbóreo - 1 kg",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Torresmo",
+   "categoria": "Carnes",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Trigo",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Refinado 1KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Mandioca Biju",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Alga Marinha Nori - C/50 Folhas",
+   "categoria": "Mercearia",
+   "unidade": "PCT",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Alcachofra - 2,5 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Penne Paganini 500G",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Amêndoas Laminadas",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Fettuccine Nidi",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Essência de Baunilha",
+   "categoria": "Mercearia",
+   "unidade": "ML",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Amendoim - 400 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Aceto Balsâmico",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Arroz Negro 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "PCT",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Confeiteiro",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Cristal",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Arroz Vermelho 500GR",
+   "categoria": "Mercearia",
+   "unidade": "PCT",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Gelado",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Mascavo - 500GR",
+   "categoria": "Mercearia",
+   "unidade": "PCT",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Ameixa s/ semente - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Abacaxi em Calda - 800 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Achocolatado em Pó",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Mascavo - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Adoçante Sacarina - 200 ML",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Agar Agar",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Atum - 170 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Azeite de Dendê - 900 ML",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Azeitona Verde Fatiada - 3,2 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Azeitona Verde s/ Caroço - 780 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Arroz p/ Sushi - 5 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Wasabi Premium em Pó - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mistura p/ Tempura - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Hondashi Tempero p/ Peixe - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Batata Palha - 800 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Bolacha Maizena",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cacau em Pó 70% - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cacau em Pó 100% - 1 KG - Barry",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Café - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Caldo de Carne em Pó - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Caldo de Galinha em Pó - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Camomila - KG",
+   "categoria": "Bebidas",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Canela em Pau - 10 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Canela em Pau - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Canela em Pó - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Catchup - 3,5 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cereja em Calda - 3,1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chá de Lavanda - 50 GR",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chá Mate Leão",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chantily Gran American - 1 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chocolate Branco Barra - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chocolate Meio Amargo Sicao Barra - 2 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chocolate Granulado - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chocolate Meio Amargo Nestlé - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Coco Ralado - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Champignon/Cogumelo em Conserva - 3,2",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cogumelo Funghi/Shitake - 50 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cogumelo Funghi Seco - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cominho em Pó - 8 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Confeti/Pastilhas Coloridas Tipo M&M - 50",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Colorau - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Conhaque Presidente",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cravo Flor",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cravo em Pó - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Creme Culinário Vegetal - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Creme de Leite - 200 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Doce de Leite p/ Confeitaria - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Doce Soro de Leite Sabor Chocolate - 4,8",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Doritos - 300 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Ervilha Seca - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Espinafre em Pó - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Extrato de Malte em Pó - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Extrato de Tomate Elefante - 1,7 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Arroz - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Centeio - 2 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Grão de Bico - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Mandioca - 1 KG (Doação)",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Rosca",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Saraceno - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Trigo Integral - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha Panko - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha Panko - Sushi Fioccopanko",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fécula de Batata - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Feijão Carioca - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fermento Biológico - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fermento Químico",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Figo em Calda - 850 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Figo Ramy - 525 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fubá",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gelatina sem Sabor - 24 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gelatina sem Sabor - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Geleia de Brilho Vermelho - 4,3 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gergelim Branco - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gergelim Preto - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Glace Real",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Goiabada - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gordura Vegetal/Óleo Algodão - 15,8 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gotas de Chocolate ao Leite",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Grão de Bico - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Leite Condensado - 395 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Leite de Coco",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Leite de Coco Sococo - 1 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Goma Xantana - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gengibre em Conserva - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Conchiglioni - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Espaguete - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Espaguete Zero Gluten - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Farfalle/Gravata - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Maionese Helmanns - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Maionese Helmanns Sachê - 2,8 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Amido de Milho - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Maria Mole",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Margarina - 15,8 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Massa de Arroz/Oriental - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Massa de Lasanha Zero Gluten - 250 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Massa Tipo Talharim/Caseira - 400 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mel - Garrafa 2 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Melhorado de Farinha Fleischmann - 300 G",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Milho Verde",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mistura p/ Bolo s/ Gluten - 400 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Molho de Pimenta Jalapeño - 100 ML",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Molho de Tarê - 200 ML",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mostarda - 3,2 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mostarda Dijon - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Noz Moscada em Pó",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Noz Moscada Semente - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Noz Pecã - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Nutella - 3 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Óleo de Gergelim - 250 ML",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Orégano - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Ovos de Codorna 1,8 KG",
+   "categoria": "Carnes",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Paçoca",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pepino em Conserva - 560 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pêssego em Calda - 820 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pimenta Jamaica - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pimenta Jamaica Síria - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pimenta Preta Moída - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pimenta Síria Moída - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pipoca - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Pó Royal - 250 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Polvilho Doce - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Propionato de Cálcio - 2 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Psyllium - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Quinoa Branca - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Quinoa Mix - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sachê de Catchup Heinz",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sachê de Maionese Heinz",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sachê de Mostarda Heinz",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sachê de Shoyu - C/250 un",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sachê de Tarê - C/252 un",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sagu - 400 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sal Grosso - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Salsa Trufada - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Semente de Chia - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Shoyu (3,1L)",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Suco de Maracujá Maguary - 500 ML",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Suco de Uva Integral Aurora - 1,5 L",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Suspiro Merengue - 250 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tacos Mexicanos",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tapioca p/ Bolo e Pudim/Média - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tempero Baiano - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tempero Ervas Finas c/ Limão - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tempero Sírio - 500 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tempero Zattar - 1 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tortilhas de Trigo - C/20 Discos",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Trigo em Grão - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Trigo p/ Quibe",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Uva Passa Branca - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Uva Passa Preta - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Cachaça Velho Barreiro",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Vinagre de Álcool - 5 L",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Vinho Branco Seco - 4,5 L",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Vinho Tinto Seco - 4,5 L",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Uva Passa Preta - 2 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tomate Pelati - 2,55 KG",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Trigo Motasa 65 - 10 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Trigo Motasa 45 - 10 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Sêmola - 10 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Spaghetti Paganini - 500 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Filé de Anchova - 90 GR",
+   "categoria": "Carnes",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Polenta Instantânea Paganini",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Mix de Castanhas e Frutas - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Perolado - 600 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tomate Seco Sachê - 150 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fermento Biológico p/ Massas e Doces - 5",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Mascavo - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Tapioca Grossa - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Fettuccine Nidi - Paganini",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Filé de Anchova - 306 GR",
+   "categoria": "Carnes",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Fumaça Líquida - 1 L",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Saquê Mirin Azuma 5 L",
+   "categoria": "Bebidas",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Leite de Coco - 1 L",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gergelim Preto p/ Sushi - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Gergelim Branco Torrado p/ Sushi - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Geleia Queensberry - 320 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Alho Frito - 100 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Macarrão Parafuso",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Alcaparra - 4 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Farinha de Trigo Motasa M150 - 10 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Doce de Leite - 900 GR",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Champignon/Cogumelo em Conserva - 2 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Essência de Baunilha - 800 ML",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Chocolate Meio Amargo - 1 KG",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Flor de Sal - 1 KG (Sal)",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Azeitona Preta Fatiada - 1 KG Sachê",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Barbecue - 400 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Orégano - 250 GR",
+   "categoria": "Temperos",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Açúcar Impalpável",
+   "categoria": "Mercearia",
+   "unidade": "KG",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  },
+  {
+   "nome": "Papel Alumínio - 65 mt",
+   "categoria": "Mercearia",
+   "unidade": "UN",
+   "estoqueMinimo": 0,
+   "fornecedor": "",
+   "precoMedio": 0,
+   "validadeDias": 0
+  }
+ ],
+ "fracionados": [],
+ "locais": [
+  {
+   "nome": "Central de Distribuição",
+   "tipo": "Central",
+   "responsavel": "Igor Morgado"
+  },
+  {
+   "nome": "Buffet Fran Casaria",
+   "tipo": "Consumidor",
+   "responsavel": ""
+  },
+  {
+   "nome": "Sushi",
+   "tipo": "Consumidor",
+   "responsavel": ""
+  },
+  {
+   "nome": "Restaurante Arboreto",
+   "tipo": "Consumidor",
+   "responsavel": ""
+  },
+  {
+   "nome": "Cozinha de Produção de Fracionados",
+   "tipo": "Fracionamento",
+   "responsavel": ""
+  },
+  {
+   "nome": "Pizza",
+   "tipo": "Consumidor",
+   "responsavel": ""
+  }
+ ],
+ "entradasCentral": [],
+ "saidasCentral": [
+  {
+   "data": "2026-07-04",
+   "documento": "SC-001",
+   "produto": "Salmão Fresco",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 25
+  },
+  {
+   "data": "2026-07-04",
+   "documento": "SC-002",
+   "produto": "Arroz Japonês",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 20
+  },
+  {
+   "data": "2026-07-05",
+   "documento": "SC-003",
+   "produto": "Filé de Frango",
+   "destino": "Restaurante Arboreto",
+   "quantidade": 15
+  },
+  {
+   "data": "2026-07-05",
+   "documento": "SC-004",
+   "produto": "Tomate",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 12
+  },
+  {
+   "data": "2026-07-06",
+   "documento": "SC-005",
+   "produto": "Alface Americana",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 10
+  },
+  {
+   "data": "2026-07-06",
+   "documento": "SC-006",
+   "produto": "Filé de Frango",
+   "destino": "Buffet Fran Casaria",
+   "quantidade": 5
+  },
+  {
+   "data": "2026-07-13",
+   "documento": "01",
+   "produto": "BISC ANA JULIA ROSCA NATA POTE",
+   "destino": "Buffet Fran Casaria",
+   "quantidade": 5
+  },
+  {
+   "data": "2026-07-13",
+   "documento": "02",
+   "produto": "Filé de Frango",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 4
+  },
+  {
+   "data": "2026-07-13",
+   "documento": "",
+   "produto": "Tomate",
+   "destino": "Cozinha de Produção de Fracionados",
+   "quantidade": 5
+  }
+ ],
+ "producoes": [],
+ "saidasFracionado": [],
+ "pedidosFeitos": {
+  "compra_Alface Americana_2026-07-09": false,
+  "compra_Arroz Japonês_2026-07-09": false,
+  "compra_Arroz Japonês_2026-07-13": false
+ },
+ "categorias": [
+  {
+   "nome": "Peixes e Frutos do Mar"
+  },
+  {
+   "nome": "Grãos e Cereais"
+  },
+  {
+   "nome": "Hortifruti"
+  },
+  {
+   "nome": "Carnes"
+  },
+  {
+   "nome": "Laticínios"
+  },
+  {
+   "nome": "Outros"
+  },
+  {
+   "nome": "Bebidas"
+  },
+  {
+   "nome": "Mercearia"
+  },
+  {
+   "nome": "Temperos"
+  }
+ ],
+ "_exportadoEm": "2026-07-16T00:00:00.000Z",
+ "_sistema": "Sistema de Estoque Fran Casarin",
+ "ajustesEstoque": [
+  {
+   "data": "2026-07-16",
+   "produto": "Arroz Koblenz - 5 kg",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cappuccino",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sal - 1KG",
+   "novoSaldo": 17.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 17.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Palmito Gr - 800G",
+   "novoSaldo": 12.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 12.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Óleo",
+   "novoSaldo": 55.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 55.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Folha de Louro - 160G",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Feijão Preto",
+   "novoSaldo": 24.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 24.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Azeite de Oliva",
+   "novoSaldo": 22.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 22.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Arroz Arbóreo - 1 kg",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Torresmo",
+   "novoSaldo": 22.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 22.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Trigo",
+   "novoSaldo": 80.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 80.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Refinado 1KG",
+   "novoSaldo": 25.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 25.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Mandioca Biju",
+   "novoSaldo": 17.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 17.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Alga Marinha Nori - C/50 Folhas",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Alcachofra - 2,5 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Penne Paganini 500G",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Amêndoas Laminadas",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Fettuccine Nidi",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Essência de Baunilha",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Amendoim - 400 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Aceto Balsâmico",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Arroz Negro 500 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Confeiteiro",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Cristal",
+   "novoSaldo": 27.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 27.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Arroz Vermelho 500GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Gelado",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Mascavo - 500GR",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Ameixa s/ semente - 1 KG",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Abacaxi em Calda - 800 GR",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Achocolatado em Pó",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Mascavo - 500 GR",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Adoçante Sacarina - 200 ML",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Agar Agar",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Atum - 170 GR",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Azeite de Dendê - 900 ML",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Azeitona Verde Fatiada - 3,2 KG",
+   "novoSaldo": 10.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 10.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Azeitona Verde s/ Caroço - 780 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Arroz p/ Sushi - 5 KG",
+   "novoSaldo": 13.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 13.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Wasabi Premium em Pó - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mistura p/ Tempura - 1 KG",
+   "novoSaldo": 73.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 73.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Hondashi Tempero p/ Peixe - 500 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Batata Palha - 800 GR",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Bolacha Maizena",
+   "novoSaldo": 13.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 13.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cacau em Pó 70% - 500 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cacau em Pó 100% - 1 KG - Barry",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Café - 500 GR",
+   "novoSaldo": 34.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 34.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Caldo de Carne em Pó - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Caldo de Galinha em Pó - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Camomila - KG",
+   "novoSaldo": 0.373,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.373
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Canela em Pau - 10 GR",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Canela em Pau - 500 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Canela em Pó - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Catchup - 3,5 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cereja em Calda - 3,1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chá de Lavanda - 50 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chá Mate Leão",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chantily Gran American - 1 L",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chocolate Branco Barra - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chocolate Meio Amargo Sicao Barra - 2 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chocolate Granulado - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chocolate Meio Amargo Nestlé - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Coco Ralado - 1 KG",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Champignon/Cogumelo em Conserva - 3,2",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cogumelo Funghi/Shitake - 50 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cogumelo Funghi Seco - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cominho em Pó - 8 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Confeti/Pastilhas Coloridas Tipo M&M - 50",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Colorau - 500 GR",
+   "novoSaldo": 8.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 8.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Conhaque Presidente",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cravo Flor",
+   "novoSaldo": 0.68,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.68
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cravo em Pó - 1 KG",
+   "novoSaldo": 3.524,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.524
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Creme Culinário Vegetal - 1 KG",
+   "novoSaldo": 16.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 16.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Creme de Leite - 200 GR",
+   "novoSaldo": 191.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 191.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Doce de Leite p/ Confeitaria - 1 KG",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Doce Soro de Leite Sabor Chocolate - 4,8",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Doritos - 300 GR",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Ervilha Seca - 500 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Espinafre em Pó - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Extrato de Malte em Pó - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Extrato de Tomate Elefante - 1,7 KG",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Arroz - 1 KG",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Centeio - 2 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Grão de Bico - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Mandioca - 1 KG (Doação)",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Rosca",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Saraceno - 1 KG",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Trigo Integral - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha Panko - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha Panko - Sushi Fioccopanko",
+   "novoSaldo": 33.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 33.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fécula de Batata - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Feijão Carioca - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fermento Biológico - 500 GR",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fermento Químico",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Figo em Calda - 850 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Figo Ramy - 525 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fubá",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gelatina sem Sabor - 24 GR",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gelatina sem Sabor - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Geleia de Brilho Vermelho - 4,3 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gergelim Branco - 1 KG",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gergelim Preto - 1 KG",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Glace Real",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Goiabada - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gordura Vegetal/Óleo Algodão - 15,8 L",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gotas de Chocolate ao Leite",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Grão de Bico - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Leite Condensado - 395 GR",
+   "novoSaldo": 115.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 115.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Leite de Coco",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Leite de Coco Sococo - 1 L",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Goma Xantana - 1 KG",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gengibre em Conserva - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Conchiglioni - 500 GR",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Espaguete - 500 GR",
+   "novoSaldo": 26.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 26.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Espaguete Zero Gluten - 500 GR",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Farfalle/Gravata - 500 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Maionese Helmanns - 500 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Maionese Helmanns Sachê - 2,8 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Amido de Milho - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Maria Mole",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Margarina - 15,8 L",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Massa de Arroz/Oriental - 500 GR",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Massa de Lasanha Zero Gluten - 250 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Massa Tipo Talharim/Caseira - 400 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mel - Garrafa 2 L",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Melhorado de Farinha Fleischmann - 300 G",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Milho Verde",
+   "novoSaldo": 12.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 12.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mistura p/ Bolo s/ Gluten - 400 GR",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Molho de Pimenta Jalapeño - 100 ML",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Molho de Tarê - 200 ML",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mostarda - 3,2 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mostarda Dijon - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Noz Moscada em Pó",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Noz Moscada Semente - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Noz Pecã - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Nutella - 3 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Óleo de Gergelim - 250 ML",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Orégano - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Ovos de Codorna 1,8 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Paçoca",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pepino em Conserva - 560 GR",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pêssego em Calda - 820 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pimenta Jamaica - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pimenta Jamaica Síria - 1 KG",
+   "novoSaldo": 2.82,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.82
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pimenta Preta Moída - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pimenta Síria Moída - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pipoca - 500 GR",
+   "novoSaldo": 21.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 21.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Pó Royal - 250 GR",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Polvilho Doce - 1 KG",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Propionato de Cálcio - 2 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Psyllium - 1 KG",
+   "novoSaldo": 10.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 10.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Quinoa Branca - 1 KG",
+   "novoSaldo": 14.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 14.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Quinoa Mix - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sachê de Catchup Heinz",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sachê de Maionese Heinz",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sachê de Mostarda Heinz",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sachê de Shoyu - C/250 un",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sachê de Tarê - C/252 un",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sagu - 400 GR",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sal Grosso - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Salsa Trufada - 500 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Semente de Chia - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Shoyu (3,1L)",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Suco de Maracujá Maguary - 500 ML",
+   "novoSaldo": 17.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 17.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Suco de Uva Integral Aurora - 1,5 L",
+   "novoSaldo": 12.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 12.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Suspiro Merengue - 250 GR",
+   "novoSaldo": 8.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 8.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tacos Mexicanos",
+   "novoSaldo": 25.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 25.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tapioca p/ Bolo e Pudim/Média - 500 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tempero Baiano - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tempero Ervas Finas c/ Limão - 500 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tempero Sírio - 500 GR",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tempero Zattar - 1 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tortilhas de Trigo - C/20 Discos",
+   "novoSaldo": 8.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 8.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Trigo em Grão - 1 KG",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Trigo p/ Quibe",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Uva Passa Branca - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Uva Passa Preta - 1 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Cachaça Velho Barreiro",
+   "novoSaldo": 18.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 18.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Vinagre de Álcool - 5 L",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Vinho Branco Seco - 4,5 L",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Vinho Tinto Seco - 4,5 L",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Uva Passa Preta - 2 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tomate Pelati - 2,55 KG",
+   "novoSaldo": 20.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 20.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Trigo Motasa 65 - 10 KG",
+   "novoSaldo": 3.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 3.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Trigo Motasa 45 - 10 KG",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Sêmola - 10 KG",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Spaghetti Paganini - 500 GR",
+   "novoSaldo": 11.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 11.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Filé de Anchova - 90 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Polenta Instantânea Paganini",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Mix de Castanhas e Frutas - 1 KG",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Perolado - 600 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tomate Seco Sachê - 150 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fermento Biológico p/ Massas e Doces - 5",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Mascavo - 1 KG",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Tapioca Grossa - 1 KG",
+   "novoSaldo": 5.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 5.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Fettuccine Nidi - Paganini",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Filé de Anchova - 306 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Fumaça Líquida - 1 L",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Saquê Mirin Azuma 5 L",
+   "novoSaldo": 2.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 2.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Leite de Coco - 1 L",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gergelim Preto p/ Sushi - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Gergelim Branco Torrado p/ Sushi - 1 KG",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Geleia Queensberry - 320 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Alho Frito - 100 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Macarrão Parafuso",
+   "novoSaldo": 6.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 6.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Alcaparra - 4 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Farinha de Trigo Motasa M150 - 10 KG",
+   "novoSaldo": 7.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 7.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Doce de Leite - 900 GR",
+   "novoSaldo": 0.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 0.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Champignon/Cogumelo em Conserva - 2 KG",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Essência de Baunilha - 800 ML",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Chocolate Meio Amargo - 1 KG",
+   "novoSaldo": 4.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 4.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Flor de Sal - 1 KG (Sal)",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Azeitona Preta Fatiada - 1 KG Sachê",
+   "novoSaldo": 10.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 10.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Barbecue - 400 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Orégano - 250 GR",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Açúcar Impalpável",
+   "novoSaldo": 1.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 1.0
+  },
+  {
+   "data": "2026-07-16",
+   "produto": "Papel Alumínio - 65 mt",
+   "novoSaldo": 8.0,
+   "motivo": "Contagem física — Inventário Mercadinho (13/07/2026)",
+   "responsavel": "Igor Morgado",
+   "saldoAnterior": 0,
+   "diferenca": 8.0
+  }
+ ],
+ "itensManuaisCompra": [],
+ "pedidosCompra": []
+}
