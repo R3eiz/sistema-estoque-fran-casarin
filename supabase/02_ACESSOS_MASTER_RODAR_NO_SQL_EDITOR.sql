@@ -97,7 +97,7 @@ begin
     )
     values (
       v_user_id, '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated',
-      v_email, crypt(p_senha, gen_salt('bf')),
+      v_email, extensions.crypt(p_senha, extensions.gen_salt('bf')),
       now(), '{"provider":"email","providers":["email"]}'::jsonb,
       jsonb_build_object('name', coalesce(nullif(trim(p_nome), ''), v_email)),
       now(), now(), '', '', '', ''
@@ -130,7 +130,7 @@ begin
     end if;
   else
     update auth.users
-    set encrypted_password = crypt(p_senha, gen_salt('bf')),
+    set encrypted_password = extensions.crypt(p_senha, extensions.gen_salt('bf')),
         email_confirmed_at = coalesce(email_confirmed_at, now()),
         raw_user_meta_data = coalesce(raw_user_meta_data, '{}'::jsonb) || jsonb_build_object('name', coalesce(nullif(trim(p_nome), ''), v_email)),
         updated_at = now()
