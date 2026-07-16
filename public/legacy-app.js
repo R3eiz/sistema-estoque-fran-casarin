@@ -14,6 +14,18 @@ function destinosCentralOptions(){ return db.locais.filter(l=>l.tipo!=='Central'
 function destinosFracionadoOptions(){ return db.locais.filter(l=>l.tipo==='Consumidor').map(l=>l.nome); }
 const STORAGE_KEY = "estoqueFranCasarinDB_v1";
 
+function accessProfile(){ return (window.__estoqueAccess && window.__estoqueAccess.profile) || {papel:'visualizador', email:''}; }
+function canEditSystem(){ return !!(window.__estoqueAccess && window.__estoqueAccess.canEdit); }
+function canManageUsers(){ return !!(window.__estoqueAccess && window.__estoqueAccess.canManageUsers); }
+function roleLabel(papel){
+  return papel==='master' ? 'Master' : papel==='administrador' ? 'Administrador' : 'Visualizador';
+}
+function ensureCanEdit(){
+  if(canEditSystem()) return true;
+  alert('Seu acesso é Visualizador. Você pode consultar o sistema, mas não pode alterar dados.');
+  return false;
+}
+
 function seedDB(){
   return {
     categorias: CATEGORIAS_PADRAO.map(nome=>({nome})),
@@ -97,6 +109,11 @@ function normalizeDB(data){
 }
 let storageAvailable = true;
 function saveDB(){
+  if(!canEditSystem()){
+    db = loadDB();
+    render();
+    return false;
+  }
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(db)); }
   catch(e){
     if(storageAvailable){ storageAvailable = false; showStorageWarning(); }
@@ -104,6 +121,7 @@ function saveDB(){
   if(window.__estoqueCloudSync && typeof window.__estoqueCloudSync.save === 'function'){
     window.__estoqueCloudSync.save(db);
   }
+  return true;
 }
 window.__estoqueLegacy = {
   getDB(){ return db; },
@@ -237,11 +255,15 @@ function expandGroupFor(tab){
 
 function setActiveNav(){
   expandGroupFor(currentTab);
+  document.querySelectorAll('.master-only').forEach(el=>{ el.style.display = canManageUsers() ? '' : 'none'; });
+  const resetBtn = document.getElementById('resetBtn');
+  if(resetBtn) resetBtn.style.display = canEditSystem() ? '' : 'none';
   document.querySelectorAll('.navitem').forEach(b=> b.classList.toggle('active', b.dataset.tab===currentTab));
 }
 
 /* ============================= RENDER ROOT ============================= */
 function render(){
+  if(currentTab==='usuarios' && !canManageUsers()) currentTab = 'dashboard';
   document.getElementById('todayLabel').textContent = "Hoje: " + fmtDate(todayStr());
   setActiveNav();
   updateSidebarBadges();
@@ -250,6 +272,7 @@ function render(){
     dashboard: renderDashboard, estoque: renderEstoque, compras: renderCompras, alertas: renderAlertas,
     relatorios: renderRelatorios, backup: renderBackup, importarNF: renderImportarNF,
     conferenciaPedidos: renderConferenciaPedidos, seguranca: renderSeguranca,
+    usuarios: renderUsuarios,
     brutos: ()=>renderCrud(defBrutos), fracionados: ()=>renderCrud(defFracionados), locais: ()=>renderCrud(defLocais),
     categorias: ()=>renderCrud(defCategorias),
     entradasCentral: ()=>renderCrud(defEntradasCentral), saidasCentral: ()=>renderCrud(defSaidasCentral),
@@ -628,6 +651,7 @@ let crudEdit = null; // {key, idx} — controla o modo de edição de um registr
 
 function renderCrud(def){
   const c = document.getElementById('content');
+  const editable = canEditSystem();
   const editing = (crudEdit && crudEdit.key===def.key) ? crudEdit.idx : null;
   const editingRow = editing!=null ? db[def.key][editing] : null;
   const wrap = document.createElement('div');
@@ -647,6 +671,14 @@ function renderCrud(def){
   c.appendChild(wrap);
 
   const form = wrap.querySelector(`#form-${def.key}`);
+  if(!editable){
+    const firstCard = wrap.querySelector('.card');
+    if(firstCard){
+      firstCard.outerHTML = `<div class="msg-ok" style="margin-bottom:18px">Acesso visualizador: os registros estÃ£o disponÃ­veis apenas para consulta.</div>`;
+    }
+    renderTable(def, wrap.querySelector(`#table-${def.key}`));
+    return;
+  }
   def.fields.forEach(f=>{
     const fieldDiv = document.createElement('div'); fieldDiv.className='field';
     const label = document.createElement('label'); label.textContent = f.label; fieldDiv.appendChild(label);
@@ -711,11 +743,13 @@ function renderTable(def, container){
   if(def.groupByDate){ renderTableGrouped(def, container, rows); return; }
   let html = `<table><thead><tr>`;
   def.columns.forEach(c=> html += `<th>${c.label}</th>`);
-  html += `<th></th></tr></thead><tbody>`;
+  if(canEditSystem()) html += `<th></th>`;
+  html += `</tr></thead><tbody>`;
   rows.forEach((r, idx)=>{
     html += `<tr>`;
     def.columns.forEach(c=> html += `<td>${c.render(r)}</td>`);
-    html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${idx}" title="Excluir">✕</button></td></tr>`;
+    if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${idx}" title="Excluir">✕</button></td>`;
+    html += `</tr>`;
   });
   html += `</tbody></table>`;
   container.innerHTML = html;
@@ -780,11 +814,13 @@ function renderTableGrouped(def, container, rows){
     html += `<h3 class="daygroup-title">${dataKey==='Sem data' ? 'Sem data' : fmtDate(dataKey)}</h3>`;
     html += `<table><thead><tr>`;
     def.columns.forEach(c=> html += `<th>${c.label}</th>`);
-    html += `<th></th></tr></thead><tbody>`;
+    if(canEditSystem()) html += `<th></th>`;
+    html += `</tr></thead><tbody>`;
     groups[dataKey].forEach(x=>{
       html += `<tr>`;
       def.columns.forEach(c=> html += `<td>${c.render(x.r)}</td>`);
-      html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir">✕</button></td></tr>`;
+      if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar">?</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir">?</button></td>`;
+      html += `</tr>`;
     });
     html += `</tbody></table>`;
   });
@@ -1235,6 +1271,98 @@ function confirmarEntradaPedido(idx, quantidadeRecebida, precoRecebido, forneced
   db.itensManuaisCompra = db.itensManuaisCompra.filter(p=>p!==pedido.produto);
   saveDB();
   render();
+}
+
+/* ============================= USUÁRIOS E LOGS ============================= */
+async function renderUsuarios(){
+  const c = document.getElementById('content');
+  if(!canManageUsers()){
+    c.innerHTML = `<h1 class="pagetitle">Acesso restrito</h1><p class="pagesub">Somente o acesso Master pode gerenciar usuários.</p>`;
+    return;
+  }
+  c.innerHTML = `<h1 class="pagetitle">Usuários e Logs</h1><p class="pagesub">Crie acessos, defina permissões e acompanhe alterações feitas no sistema.</p><div class="card"><div class="empty">Carregando usuários...</div></div>`;
+  try{
+    const [usuarios, logs] = await Promise.all([
+      window.__estoqueAccess.listUsers(),
+      window.__estoqueAccess.listAudit()
+    ]);
+    let html = `<h1 class="pagetitle">Usuários e Logs</h1><p class="pagesub">Somente Master vê esta tela. Administrador edita o estoque, Visualizador apenas consulta.</p>`;
+    html += `<div class="card"><h2>Novo Acesso</h2>
+      <form class="entryform" id="userForm">
+        <div class="field"><label>Nome</label><input type="text" name="nome" placeholder="Nome do usuário"></div>
+        <div class="field"><label>E-mail</label><input type="email" name="email" required placeholder="usuario@empresa.com"></div>
+        <div class="field"><label>Senha inicial</label><input type="password" name="senha" required minlength="6" placeholder="Senha segura"></div>
+        <div class="field"><label>Nível</label><select name="papel"><option value="administrador">Administrador</option><option value="visualizador">Visualizador</option></select></div>
+        <div class="field"><label>&nbsp;</label><button class="btn" type="submit">Criar acesso</button></div>
+      </form>
+      <p class="footnote">Master cria acessos e gerencia usuários. Administrador altera todo o estoque, mas não vê esta tela. Visualizador só consulta.</p>
+    </div>`;
+
+    html += `<div class="card"><h2>Acessos (${usuarios.length})</h2><table><thead><tr><th>E-mail</th><th>Nome</th><th>Nível</th><th>Status</th><th></th></tr></thead><tbody>`;
+    usuarios.forEach(u=>{
+      const isMaster = u.papel === 'master';
+      html += `<tr>
+        <td><strong>${escapeHtml(u.email)}</strong></td>
+        <td>${isMaster ? escapeHtml(u.nome||'') : `<input type="text" class="userNome" data-id="${u.user_id}" value="${escapeHtml(u.nome||'')}">`}</td>
+        <td>${isMaster ? '<span class="badge-status st-ok">Master</span>' : `<select class="userPapel" data-id="${u.user_id}"><option value="administrador"${u.papel==='administrador'?' selected':''}>Administrador</option><option value="visualizador"${u.papel==='visualizador'?' selected':''}>Visualizador</option></select>`}</td>
+        <td>${isMaster ? 'Ativo' : `<select class="userAtivo" data-id="${u.user_id}"><option value="true"${u.ativo?' selected':''}>Ativo</option><option value="false"${!u.ativo?' selected':''}>Bloqueado</option></select>`}</td>
+        <td>${isMaster ? '—' : `<button class="btn secondary btnSalvarUsuario" data-id="${u.user_id}">Salvar</button>`}</td>
+      </tr>`;
+    });
+    html += `</tbody></table></div>`;
+
+    html += `<div class="card"><h2>Últimas Alterações</h2>`;
+    if(!logs.length){
+      html += `<div class="empty">Nenhum log encontrado.</div>`;
+    } else {
+      html += `<table><thead><tr><th>Data/Hora</th><th>Usuário</th><th>Nível</th><th>Tabela</th><th>Ação</th></tr></thead><tbody>`;
+      logs.forEach(l=>{
+        html += `<tr><td>${new Date(l.criado_em).toLocaleString('pt-BR')}</td><td>${escapeHtml(l.email||'Sistema')}</td><td>${roleLabel(l.papel)}</td><td>${escapeHtml(l.tabela)}</td><td>${escapeHtml(l.operacao)}</td></tr>`;
+      });
+      html += `</tbody></table>`;
+    }
+    html += `</div>`;
+    c.innerHTML = html;
+
+    document.getElementById('userForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const form = e.currentTarget;
+      const payload = {
+        nome: form.nome.value.trim(),
+        email: form.email.value.trim(),
+        senha: form.senha.value,
+        papel: form.papel.value
+      };
+      if(!payload.email || !payload.senha){ alert('Informe e-mail e senha.'); return; }
+      try{
+        await window.__estoqueAccess.createUser(payload);
+        alert('Acesso criado com sucesso.');
+        renderUsuarios();
+      }catch(err){
+        alert('Não foi possível criar o acesso: ' + (err.message || err));
+      }
+    });
+
+    c.querySelectorAll('.btnSalvarUsuario').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const id = btn.dataset.id;
+        try{
+          await window.__estoqueAccess.updateUser({
+            user_id: id,
+            nome: c.querySelector(`.userNome[data-id="${id}"]`).value.trim(),
+            papel: c.querySelector(`.userPapel[data-id="${id}"]`).value,
+            ativo: c.querySelector(`.userAtivo[data-id="${id}"]`).value === 'true'
+          });
+          alert('Usuário atualizado.');
+          renderUsuarios();
+        }catch(err){
+          alert('Não foi possível atualizar: ' + (err.message || err));
+        }
+      });
+    });
+  }catch(err){
+    c.innerHTML = `<h1 class="pagetitle">Usuários e Logs</h1><div class="card"><div class="msg-ok">Não foi possível carregar usuários/logs: ${escapeHtml(err.message || err)}</div></div>`;
+  }
 }
 
 /* ============================= ALERTAS ============================= */

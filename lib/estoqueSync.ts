@@ -17,6 +17,18 @@ type LegacyDB = {
   pedidosFeitos: Record<string, any>;
 };
 
+type PapelSistema = "master" | "administrador" | "visualizador";
+type PapelLegado = PapelSistema | "admin" | "estoque" | "consulta";
+
+export type PerfilSistema = {
+  user_id: string;
+  nome: string | null;
+  email: string;
+  papel: PapelSistema;
+  ativo: boolean;
+  criado_em?: string;
+};
+
 const emptyDB = (): LegacyDB => ({
   categorias: [],
   locais: [],
@@ -154,6 +166,65 @@ export async function loadLegacyDB(supabase: SupabaseClient): Promise<LegacyDB> 
       .map((item) => brutoPorId.get(item.produto_bruto_id)?.nome)
       .filter(Boolean) as string[],
   };
+}
+
+export async function getCurrentPerfil(supabase: SupabaseClient, user: User): Promise<PerfilSistema> {
+  const { data, error } = await supabase
+    .from("perfis")
+    .select("user_id,nome,email,papel,ativo,criado_em")
+    .eq("user_id", user.id)
+    .single();
+  if (error) throw error;
+  return normalizePerfil(data as PerfilSistema);
+}
+
+export async function listPerfis(supabase: SupabaseClient): Promise<PerfilSistema[]> {
+  const { data, error } = await supabase
+    .from("perfis")
+    .select("user_id,nome,email,papel,ativo,criado_em")
+    .order("criado_em", { ascending: true });
+  if (error) throw error;
+  return ((data ?? []) as PerfilSistema[]).map(normalizePerfil);
+}
+
+export async function createPerfilUser(
+  supabase: SupabaseClient,
+  input: { email: string; senha: string; nome?: string; papel: "administrador" | "visualizador" },
+) {
+  const { data, error } = await supabase.rpc("criar_usuario_sistema", {
+    p_email: input.email,
+    p_senha: input.senha,
+    p_nome: input.nome || input.email,
+    p_papel: input.papel,
+  });
+  if (error) throw error;
+  return data;
+}
+
+export async function updatePerfilUser(
+  supabase: SupabaseClient,
+  input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean },
+) {
+  const { error } = await supabase
+    .from("perfis")
+    .update({ nome: input.nome || null, papel: input.papel, ativo: input.ativo })
+    .eq("user_id", input.user_id);
+  if (error) throw error;
+}
+
+export async function listAuditLogs(supabase: SupabaseClient) {
+  const { data, error } = await supabase
+    .from("v_auditoria_detalhada")
+    .select("criado_em,email,papel,tabela,operacao")
+    .order("criado_em", { ascending: false })
+    .limit(80);
+  if (error) throw error;
+  return data ?? [];
+}
+
+function normalizePerfil(row: Omit<PerfilSistema, "papel"> & { papel: PapelLegado }): PerfilSistema {
+  const papel = row.papel === "admin" ? "master" : row.papel === "estoque" ? "administrador" : row.papel === "consulta" ? "visualizador" : row.papel;
+  return { ...row, papel };
 }
 
 async function deleteAll(supabase: SupabaseClient, table: string) {

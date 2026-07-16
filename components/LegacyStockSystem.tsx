@@ -3,7 +3,17 @@
 import { memo, useEffect, useState } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
-import { installCloudSync, loadLegacyDB, STORAGE_KEY } from "../lib/estoqueSync";
+import {
+  createPerfilUser,
+  getCurrentPerfil,
+  installCloudSync,
+  listAuditLogs,
+  listPerfis,
+  loadLegacyDB,
+  STORAGE_KEY,
+  updatePerfilUser,
+  type PerfilSistema,
+} from "../lib/estoqueSync";
 
 declare global {
   interface Window {
@@ -15,6 +25,15 @@ declare global {
       getDB: () => unknown;
       replaceDB: (db: unknown) => void;
       render: () => void;
+    };
+    __estoqueAccess?: {
+      profile: PerfilSistema;
+      canEdit: boolean;
+      canManageUsers: boolean;
+      listUsers: () => Promise<PerfilSistema[]>;
+      createUser: (input: { email: string; senha: string; nome?: string; papel: "administrador" | "visualizador" }) => Promise<unknown>;
+      updateUser: (input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean }) => Promise<void>;
+      listAudit: () => Promise<unknown[]>;
     };
   }
 }
@@ -67,6 +86,16 @@ export default function LegacyStockSystem() {
     async function boot(user: User) {
       try {
         setBootState("Carregando estoque do Supabase...");
+        const perfil = await getCurrentPerfil(supabase, user);
+        window.__estoqueAccess = {
+          profile: perfil,
+          canEdit: perfil.ativo && (perfil.papel === "master" || perfil.papel === "administrador"),
+          canManageUsers: perfil.ativo && perfil.papel === "master",
+          listUsers: () => listPerfis(supabase),
+          createUser: (input) => createPerfilUser(supabase, input),
+          updateUser: (input) => updatePerfilUser(supabase, input),
+          listAudit: () => listAuditLogs(supabase),
+        };
         const cloudDB = await loadLegacyDB(supabase);
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cloudDB));
         channel = installCloudSync(supabase, user, async () => {
