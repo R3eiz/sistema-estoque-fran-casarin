@@ -315,7 +315,7 @@
     color:#888 !important;
   }
   .session-pill{
-    position:fixed;
+    position:absolute;
     top:16px;
     right:20px;
     z-index:80;
@@ -369,9 +369,8 @@
     .auth-shell{padding:18px;}
     .auth-panel{padding:22px;}
     .session-pill{
-      top:auto;
+      top:12px;
       right:12px;
-      bottom:12px;
       max-width:calc(100vw - 24px);
     }
     .session-pill span{
@@ -380,5 +379,5 @@
       text-overflow:ellipsis;
       white-space:nowrap;
     }
-    .save-toast{bottom:70px;}
+    .save-toast{bottom:22px;}
   }
