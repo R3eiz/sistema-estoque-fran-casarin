@@ -11,6 +11,11 @@ declare global {
     __estoqueCloudSync?: {
       save: (db: unknown) => void;
     };
+    __estoqueLegacy?: {
+      getDB: () => unknown;
+      replaceDB: (db: unknown) => void;
+      render: () => void;
+    };
   }
 }
 
@@ -60,10 +65,13 @@ export default function LegacyStockSystem() {
         const cloudDB = await loadLegacyDB(supabase);
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cloudDB));
         channel = installCloudSync(supabase, user, async () => {
-          setCloudStatus("Atualizando com mudanca feita em outro acesso...");
+          setCloudStatus("Sincronizando mudanca de outro acesso...");
           const freshDB = await loadLegacyDB(supabase);
-          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(freshDB));
-          window.location.reload();
+          window.localStorage?.setItem(STORAGE_KEY, JSON.stringify(freshDB));
+          if (window.__estoqueLegacy) {
+            window.__estoqueLegacy.replaceDB(freshDB);
+            setCloudStatus("Tela atualizada pelo banco em tempo real");
+          }
         });
 
         const response = await fetch(`${basePath}/legacy-body.html`);
@@ -84,8 +92,10 @@ export default function LegacyStockSystem() {
     boot(session.user);
 
     const statusListener = (event: Event) => {
-      const detail = (event as CustomEvent<string>).detail;
-      setCloudStatus(detail === "salvo" ? "Alteracoes salvas no Supabase" : "Falha ao salvar no Supabase");
+      const detail = (event as CustomEvent<{ status: string; message?: string }>).detail;
+      if (detail.status === "salvando") setCloudStatus("Salvando alteracoes no Supabase...");
+      if (detail.status === "salvo") setCloudStatus("Alteracoes salvas no Supabase");
+      if (detail.status === "erro") setCloudStatus(detail.message ? `Falha ao salvar: ${detail.message}` : "Falha ao salvar no Supabase");
     };
     window.addEventListener("estoque-cloud-status", statusListener);
 

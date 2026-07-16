@@ -331,32 +331,47 @@ export function installCloudSync(
 ): RealtimeChannel {
   let saving = false;
   let timer: ReturnType<typeof setTimeout> | undefined;
+  let remoteTimer: ReturnType<typeof setTimeout> | undefined;
 
   (window as any).__estoqueCloudSync = {
     save(db: LegacyDB) {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+      window.localStorage?.setItem(STORAGE_KEY, JSON.stringify(db));
       clearTimeout(timer);
+      window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: { status: "salvando" } }));
       timer = setTimeout(async () => {
         saving = true;
         try {
           await saveLegacyDB(supabase, user, db);
-          window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: "salvo" }));
+          window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: { status: "salvo" } }));
         } catch (error) {
-          console.error(error);
-          window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: "erro" }));
+          console.error("Erro ao salvar estoque no Supabase", error);
+          const message = error instanceof Error ? error.message : "Verifique permissao do usuario ou dados obrigatorios.";
+          window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: { status: "erro", message } }));
         } finally {
           setTimeout(() => {
             saving = false;
-          }, 1500);
+          }, 3000);
         }
       }, 900);
     },
   };
 
+  supabase
+    .getChannels()
+    .filter((channel) => channel.topic.startsWith("realtime:estoque-fran-sync"))
+    .forEach((channel) => supabase.removeChannel(channel));
+
+  const channelName =
+    typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? `estoque-fran-sync-${crypto.randomUUID()}`
+      : `estoque-fran-sync-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
   return supabase
-    .channel("estoque-fran-sync")
+    .channel(channelName)
     .on("postgres_changes", { event: "*", schema: "public" }, () => {
-      if (!saving) onRemoteChange();
+      if (saving) return;
+      clearTimeout(remoteTimer);
+      remoteTimer = setTimeout(onRemoteChange, 700);
     })
     .subscribe();
 }

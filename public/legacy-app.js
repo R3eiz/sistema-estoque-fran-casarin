@@ -105,6 +105,15 @@ function saveDB(){
     window.__estoqueCloudSync.save(db);
   }
 }
+window.__estoqueLegacy = {
+  getDB(){ return db; },
+  replaceDB(nextDB){
+    db = normalizeDB(nextDB || seedDB());
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(db)); }catch(e){}
+    render();
+  },
+  render(){ render(); }
+};
 function showStorageWarning(){
   const w = document.createElement('div');
   w.style.cssText = "background:#fdf1d6;color:#8a5e00;padding:8px 24px;font-size:12.5px;border-bottom:1px solid #e7e2d8;";
@@ -920,7 +929,7 @@ function renderCompras(){
   const producao = getProducaoSugerida();
   const totalValorInicial = compras.reduce((a,x)=> pedidoPendenteFor(x.produto) ? a : a+x.valorEstimado, 0);
 
-  let html = `<h1 class="pagetitle">Compras do Dia</h1><p class="pagesub">Gerado automaticamente em ${fmtDate(todayStr())}, com base nos itens abaixo do estoque mínimo — mais os itens que você adicionar manualmente.</p>`;
+  let html = `<h1 class="pagetitle">Sugestão de Pedido</h1><p class="pagesub">Gerada automaticamente em ${fmtDate(todayStr())}, com base nos itens abaixo do estoque mínimo — mais os itens que você adicionar manualmente.</p>`;
 
   const produtosNaLista = new Set(compras.map(x=>x.produto));
   const opcoesParaAdicionar = db.brutos.filter(b=>!produtosNaLista.has(b.nome));
@@ -1140,7 +1149,7 @@ function renderConferenciaPedidos(){
     .sort((a,b)=> (b.dataRecebimento||'').localeCompare(a.dataRecebimento||'')).slice(0,15);
 
   let html = `<h1 class="pagetitle">Pedido Feito — Conferência</h1>
-    <p class="pagesub">Pedidos feitos em Compras do Dia ficam aqui até a mercadoria chegar. Confirme a quantidade e o preço realmente recebidos — os campos são sempre editáveis — para dar entrada na Central de Distribuição.</p>`;
+    <p class="pagesub">Pedidos feitos em Sugestão de Pedido ficam aqui até a mercadoria chegar. Confirme a quantidade e o preço realmente recebidos — os campos são sempre editáveis — para dar entrada na Central de Distribuição.</p>`;
 
   html += `<div class="card"><h2>Pedidos Aguardando Recebimento (${pendentes.length})</h2>`;
   if(pendentes.length===0){
