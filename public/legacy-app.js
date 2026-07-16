@@ -1336,7 +1336,7 @@ async function renderUsuarios(){
         <td>${isMaster ? escapeHtml(u.nome||'') : `<input type="text" class="userNome" data-id="${u.user_id}" value="${escapeHtml(u.nome||'')}">`}</td>
         <td>${isMaster ? '<span class="badge-status st-ok">Master</span>' : `<select class="userPapel" data-id="${u.user_id}"><option value="administrador"${u.papel==='administrador'?' selected':''}>Administrador</option><option value="visualizador"${u.papel==='visualizador'?' selected':''}>Visualizador</option></select>`}</td>
         <td>${isMaster ? 'Ativo' : `<select class="userAtivo" data-id="${u.user_id}"><option value="true"${u.ativo?' selected':''}>Ativo</option><option value="false"${!u.ativo?' selected':''}>Bloqueado</option></select>`}</td>
-        <td>${isMaster ? '—' : `<button class="btn secondary btnSalvarUsuario" data-id="${u.user_id}">Salvar</button>`}</td>
+        <td>${isMaster ? '—' : `<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn secondary btnSalvarUsuario" data-id="${u.user_id}">Salvar</button>${u.ativo ? `<button class="btn secondary btnResetSenha" data-id="${u.user_id}" data-email="${escapeHtml(u.email)}">Senha</button>` : ''}<button class="btn secondary btnExcluirUsuario" data-id="${u.user_id}" data-email="${escapeHtml(u.email)}">Excluir</button></div>`}</td>
       </tr>`;
     });
     html += `</tbody></table></div>`;
@@ -1377,6 +1377,39 @@ async function renderUsuarios(){
           renderUsuarios();
         }catch(err){
           alert('Não foi possível atualizar: ' + (err.message || err));
+        }
+      });
+    });
+    c.querySelectorAll('.btnResetSenha').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const id = btn.dataset.id;
+        const email = btn.dataset.email;
+        const senha = prompt(`Digite a nova senha para ${email}:`);
+        if(!senha) return;
+        if(senha.length < 6){ alert('A senha precisa ter ao menos 6 caracteres.'); return; }
+        if(!confirm(`Redefinir a senha de ${email}?`)) return;
+        try{
+          await window.__estoqueAccess.resetPassword({ user_id: id, senha });
+          alert('Senha redefinida com sucesso.');
+          renderUsuarios();
+        }catch(err){
+          alert('Não foi possível redefinir a senha: ' + (err.message || err));
+        }
+      });
+    });
+    c.querySelectorAll('.btnExcluirUsuario').forEach(btn=>{
+      btn.addEventListener('click', async ()=>{
+        const id = btn.dataset.id;
+        const email = btn.dataset.email;
+        const motivo = prompt(`Motivo da exclusão/bloqueio de ${email}:`, 'Acesso removido pelo Master');
+        if(motivo===null) return;
+        if(!confirm(`Excluir o acesso de ${email}?\n\nA pessoa não conseguirá mais usar o sistema, mas o histórico e os logs serão preservados.`)) return;
+        try{
+          await window.__estoqueAccess.deleteUser({ user_id: id, motivo: motivo.trim() || 'Acesso removido pelo Master' });
+          alert('Acesso excluído de forma segura.');
+          renderUsuarios();
+        }catch(err){
+          alert('Não foi possível excluir o acesso: ' + (err.message || err));
         }
       });
     });

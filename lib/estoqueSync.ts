@@ -205,6 +205,18 @@ export async function createPerfilUser(
     p_papel: input.papel,
   });
   if (error) throw error;
+  const { error: logError } = await supabase.from("logs_sistema").insert({
+    resumo: `Criou acesso de ${input.email}`,
+    detalhes: [
+      {
+        secao: "Acessos",
+        acao: "incluiu",
+        quantidade: 1,
+        itens: [`${input.email} - ${input.papel}`],
+      },
+    ],
+  });
+  if (logError) throw logError;
   return data;
 }
 
@@ -212,11 +224,31 @@ export async function updatePerfilUser(
   supabase: SupabaseClient,
   input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean },
 ) {
-  const { error } = await supabase
-    .from("perfis")
-    .update({ nome: input.nome || null, papel: input.papel, ativo: input.ativo })
-    .eq("user_id", input.user_id);
+  const { error } = await supabase.rpc("atualizar_acesso_sistema", {
+    p_user_id: input.user_id,
+    p_nome: input.nome || null,
+    p_papel: input.papel,
+    p_ativo: input.ativo,
+  });
   if (error) throw error;
+}
+
+export async function deletePerfilUser(supabase: SupabaseClient, input: { user_id: string; motivo?: string }) {
+  const { data, error } = await supabase.rpc("excluir_acesso_sistema", {
+    p_user_id: input.user_id,
+    p_motivo: input.motivo || "Exclusao pelo Master",
+  });
+  if (error) throw error;
+  return data;
+}
+
+export async function resetPerfilPassword(supabase: SupabaseClient, input: { user_id: string; senha: string }) {
+  const { data, error } = await supabase.rpc("redefinir_senha_acesso", {
+    p_user_id: input.user_id,
+    p_senha: input.senha,
+  });
+  if (error) throw error;
+  return data;
 }
 
 export async function listAuditLogs(supabase: SupabaseClient) {

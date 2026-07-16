@@ -5,11 +5,13 @@ import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 import {
   createPerfilUser,
+  deletePerfilUser,
   getCurrentPerfil,
   installCloudSync,
   listAuditLogs,
   listPerfis,
   loadLegacyDB,
+  resetPerfilPassword,
   STORAGE_KEY,
   updatePerfilUser,
   type PerfilSistema,
@@ -33,6 +35,8 @@ declare global {
       listUsers: () => Promise<PerfilSistema[]>;
       createUser: (input: { email: string; senha: string; nome?: string; papel: "administrador" | "visualizador" }) => Promise<unknown>;
       updateUser: (input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean }) => Promise<void>;
+      deleteUser: (input: { user_id: string; motivo?: string }) => Promise<unknown>;
+      resetPassword: (input: { user_id: string; senha: string }) => Promise<unknown>;
       listAudit: () => Promise<unknown[]>;
     };
   }
@@ -94,8 +98,13 @@ export default function LegacyStockSystem() {
           listUsers: () => listPerfis(supabase),
           createUser: (input) => createPerfilUser(supabase, input),
           updateUser: (input) => updatePerfilUser(supabase, input),
+          deleteUser: (input) => deletePerfilUser(supabase, input),
+          resetPassword: (input) => resetPerfilPassword(supabase, input),
           listAudit: () => listAuditLogs(supabase),
         };
+        if (!perfil.ativo) {
+          throw new Error("Este acesso esta bloqueado. Fale com o Master do sistema.");
+        }
         const cloudDB = await loadLegacyDB(supabase);
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cloudDB));
         channel = installCloudSync(supabase, user, async () => {
@@ -248,6 +257,7 @@ export default function LegacyStockSystem() {
           <img src={`${basePath}/assets/logo-fran-casarin-cropped.png`} alt="Fran Casarin Buffet" className="auth-logo" />
           <h1>Preparando sistema</h1>
           <p>{bootState}</p>
+          {session && <button type="button" onClick={handleLogout}>Sair</button>}
         </section>
       </main>
     );
