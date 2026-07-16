@@ -29,6 +29,13 @@ export type PerfilSistema = {
   criado_em?: string;
 };
 
+type ChangeDetail = {
+  secao: string;
+  acao: "incluiu" | "alterou" | "removeu";
+  quantidade: number;
+  itens: string[];
+};
+
 const emptyDB = (): LegacyDB => ({
   categorias: [],
   locais: [],
@@ -214,10 +221,10 @@ export async function updatePerfilUser(
 
 export async function listAuditLogs(supabase: SupabaseClient) {
   const { data, error } = await supabase
-    .from("v_auditoria_detalhada")
-    .select("criado_em,email,papel,tabela,operacao")
+    .from("logs_sistema")
+    .select("criado_em,email,papel,resumo,detalhes")
     .order("criado_em", { ascending: false })
-    .limit(80);
+    .limit(40);
   if (error) throw error;
   return data ?? [];
 }
@@ -395,6 +402,113 @@ async function insertRows(supabase: SupabaseClient, table: string, rows: Record<
   if (error) throw error;
 }
 
+function cloneDB(db: LegacyDB): LegacyDB {
+  return JSON.parse(JSON.stringify(db ?? emptyDB())) as LegacyDB;
+}
+
+function compactValue(value: unknown) {
+  if (value == null || value === "") return "";
+  if (typeof value === "number") return Number.isFinite(value) ? String(value) : "";
+  return String(value);
+}
+
+function itemLabel(item: Record<string, any>, fallback: string) {
+  return (
+    compactValue(item.nome) ||
+    compactValue(item.produto) ||
+    compactValue(item.produtoFracionado) ||
+    compactValue(item.produtoBruto) ||
+    compactValue(item.documento) ||
+    compactValue(item.nf) ||
+    fallback
+  );
+}
+
+function stableKey(item: Record<string, any>, index: number, fields: string[]) {
+  const key = fields.map((field) => compactValue(item[field])).filter(Boolean).join(" | ");
+  return key || `linha ${index + 1}`;
+}
+
+function changedFields(before: Record<string, any>, after: Record<string, any>) {
+  const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
+  return [...keys].filter((key) => JSON.stringify(before[key] ?? "") !== JSON.stringify(after[key] ?? ""));
+}
+
+function pushDetail(details: ChangeDetail[], secao: string, acao: ChangeDetail["acao"], itens: string[]) {
+  if (itens.length === 0) return;
+  details.push({ secao, acao, quantidade: itens.length, itens: itens.slice(0, 8) });
+}
+
+function diffArraySection(
+  details: ChangeDetail[],
+  beforeRows: Array<Record<string, any>> = [],
+  afterRows: Array<Record<string, any>> = [],
+  secao: string,
+  keyFields: string[],
+) {
+  const beforeMap = new Map(beforeRows.map((item, index) => [stableKey(item, index, keyFields), item]));
+  const afterMap = new Map(afterRows.map((item, index) => [stableKey(item, index, keyFields), item]));
+  const added: string[] = [];
+  const removed: string[] = [];
+  const updated: string[] = [];
+
+  afterMap.forEach((item, key) => {
+    const previous = beforeMap.get(key);
+    if (!previous) {
+      added.push(itemLabel(item, key));
+      return;
+    }
+    const fields = changedFields(previous, item);
+    if (fields.length > 0) updated.push(`${itemLabel(item, key)} (${fields.slice(0, 4).join(", ")})`);
+  });
+
+  beforeMap.forEach((item, key) => {
+    if (!afterMap.has(key)) removed.push(itemLabel(item, key));
+  });
+
+  pushDetail(details, secao, "incluiu", added);
+  pushDetail(details, secao, "alterou", updated);
+  pushDetail(details, secao, "removeu", removed);
+}
+
+function buildChangeDetails(before: LegacyDB, after: LegacyDB): ChangeDetail[] {
+  const details: ChangeDetail[] = [];
+  diffArraySection(details, before.categorias, after.categorias, "Categorias", ["nome"]);
+  diffArraySection(details, before.locais, after.locais, "Locais", ["nome"]);
+  diffArraySection(details, before.brutos, after.brutos, "Produtos brutos", ["nome"]);
+  diffArraySection(details, before.fracionados, after.fracionados, "Produtos fracionados", ["nome"]);
+  diffArraySection(details, before.entradasCentral, after.entradasCentral, "Entrada na central", ["data", "nf", "produto"]);
+  diffArraySection(details, before.saidasCentral, after.saidasCentral, "Saida da central", ["data", "documento", "produto", "destino"]);
+  diffArraySection(details, before.producoes, after.producoes, "Producao de fracionados", ["data", "produtoBruto", "produtoFracionado"]);
+  diffArraySection(details, before.saidasFracionado, after.saidasFracionado, "Saida de fracionados", ["data", "documento", "produto", "destino"]);
+  diffArraySection(details, before.ajustesEstoque, after.ajustesEstoque, "Ajuste de estoque", ["data", "produto", "motivo"]);
+  diffArraySection(details, before.pedidosCompra, after.pedidosCompra, "Sugestao/Pedidos", ["data", "produto", "fornecedor", "status"]);
+  diffArraySection(
+    details,
+    (before.itensManuaisCompra ?? []).map((nome) => ({ nome })),
+    (after.itensManuaisCompra ?? []).map((nome) => ({ nome })),
+    "Itens manuais de compra",
+    ["nome"],
+  );
+  return details;
+}
+
+async function insertSystemLog(supabase: SupabaseClient, user: User, before: LegacyDB, after: LegacyDB) {
+  const detalhes = buildChangeDetails(before, after);
+  if (detalhes.length === 0) return;
+  const resumo = detalhes
+    .slice(0, 4)
+    .map((item) => `${item.acao} ${item.quantidade} em ${item.secao}`)
+    .join("; ");
+  const { error } = await supabase.from("logs_sistema").insert({
+    usuario_id: user.id,
+    email: user.email,
+    resumo,
+    detalhes,
+  });
+  if (error) throw error;
+}
+
 export function installCloudSync(
   supabase: SupabaseClient,
   user: User,
@@ -403,6 +517,13 @@ export function installCloudSync(
   let saving = false;
   let timer: ReturnType<typeof setTimeout> | undefined;
   let remoteTimer: ReturnType<typeof setTimeout> | undefined;
+  let lastSavedDB: LegacyDB = (() => {
+    try {
+      return cloneDB(JSON.parse(window.localStorage?.getItem(STORAGE_KEY) || "null") || emptyDB());
+    } catch {
+      return emptyDB();
+    }
+  })();
 
   (window as any).__estoqueCloudSync = {
     save(db: LegacyDB) {
@@ -412,7 +533,15 @@ export function installCloudSync(
       timer = setTimeout(async () => {
         saving = true;
         try {
-          await saveLegacyDB(supabase, user, db);
+          const nextDB = cloneDB(db);
+          const beforeDB = cloneDB(lastSavedDB);
+          await saveLegacyDB(supabase, user, nextDB);
+          try {
+            await insertSystemLog(supabase, user, beforeDB, nextDB);
+          } catch (logError) {
+            console.warn("Nao foi possivel registrar o log resumido.", logError);
+          }
+          lastSavedDB = cloneDB(nextDB);
           window.dispatchEvent(new CustomEvent("estoque-cloud-status", { detail: { status: "salvo" } }));
         } catch (error) {
           console.error("Erro ao salvar estoque no Supabase", error);

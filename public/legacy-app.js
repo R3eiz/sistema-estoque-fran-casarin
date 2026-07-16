@@ -1274,6 +1274,36 @@ function confirmarEntradaPedido(idx, quantidadeRecebida, precoRecebido, forneced
 }
 
 /* ============================= USUÁRIOS E LOGS ============================= */
+function actionLabel(acao){
+  return acao === 'incluiu' ? 'Incluiu' : acao === 'alterou' ? 'Alterou' : acao === 'removeu' ? 'Removeu' : acao;
+}
+function renderChangeMap(logs){
+  if(!logs.length) return `<div class="empty">Nenhum log encontrado.</div>`;
+  return logs.map(log=>{
+    const detalhes = Array.isArray(log.detalhes) ? log.detalhes : [];
+    const detalhesHtml = detalhes.length ? detalhes.map(d=>{
+      const itens = Array.isArray(d.itens) ? d.itens : [];
+      const itemList = itens.length
+        ? `<ul style="margin:6px 0 0 18px;padding:0">${itens.map(i=>`<li>${escapeHtml(i)}</li>`).join('')}</ul>`
+        : '';
+      return `<div style="padding:10px 0;border-top:1px solid var(--line)">
+        <strong>${actionLabel(d.acao)} ${Number(d.quantidade||0)} em ${escapeHtml(d.secao||'Sistema')}</strong>
+        ${itemList}
+      </div>`;
+    }).join('') : `<div class="footnote">${escapeHtml(log.resumo||'Alteracao registrada.')}</div>`;
+    return `<div class="card" style="box-shadow:none;margin-top:12px;border-color:#eadfc5">
+      <div style="display:grid;grid-template-columns:180px 1fr 130px;gap:12px;align-items:start">
+        <div><strong>${new Date(log.criado_em).toLocaleString('pt-BR')}</strong></div>
+        <div>
+          <div><strong>${escapeHtml(log.email||'Sistema')}</strong></div>
+          <div class="footnote">${escapeHtml(log.resumo||'Alteracao registrada.')}</div>
+        </div>
+        <div><span class="badge-status st-ok">${roleLabel(log.papel)}</span></div>
+      </div>
+      <div style="margin-top:10px">${detalhesHtml}</div>
+    </div>`;
+  }).join('');
+}
 async function renderUsuarios(){
   const c = document.getElementById('content');
   if(!canManageUsers()){
@@ -1311,17 +1341,7 @@ async function renderUsuarios(){
     });
     html += `</tbody></table></div>`;
 
-    html += `<div class="card"><h2>Últimas Alterações</h2>`;
-    if(!logs.length){
-      html += `<div class="empty">Nenhum log encontrado.</div>`;
-    } else {
-      html += `<table><thead><tr><th>Data/Hora</th><th>Usuário</th><th>Nível</th><th>Tabela</th><th>Ação</th></tr></thead><tbody>`;
-      logs.forEach(l=>{
-        html += `<tr><td>${new Date(l.criado_em).toLocaleString('pt-BR')}</td><td>${escapeHtml(l.email||'Sistema')}</td><td>${roleLabel(l.papel)}</td><td>${escapeHtml(l.tabela)}</td><td>${escapeHtml(l.operacao)}</td></tr>`;
-      });
-      html += `</tbody></table>`;
-    }
-    html += `</div>`;
+    html += `<div class="card"><h2>Mapa de Alterações</h2><p class="footnote">Cada bloco representa um salvamento feito por um usuário, com o que foi incluído, alterado ou removido.</p>${renderChangeMap(logs)}</div>`;
     c.innerHTML = html;
 
     document.getElementById('userForm').addEventListener('submit', async (e)=>{
