@@ -198,10 +198,16 @@ function validadeBadge(dias){
 
 /* ============================= NAV ============================= */
 let currentTab = "dashboard";
-document.querySelectorAll('.navitem').forEach(btn=>{
+document.querySelectorAll('.navitem[data-tab]').forEach(btn=>{
   btn.addEventListener('click', ()=>{ currentTab = btn.dataset.tab; render(); closeMobileSidebar(); });
 });
 document.getElementById('resetBtn').addEventListener('click', resetDB);
+const logoutBtn = document.getElementById('logoutBtn');
+if(logoutBtn){
+  logoutBtn.addEventListener('click', ()=>{
+    window.dispatchEvent(new CustomEvent('estoque:logout'));
+  });
+}
 
 // Menu hamburguer — em telas estreitas a barra lateral vira um painel deslizante.
 const menuToggleBtn = document.getElementById('menuToggle');
@@ -258,7 +264,9 @@ function setActiveNav(){
   document.querySelectorAll('.master-only').forEach(el=>{ el.style.display = canManageUsers() ? '' : 'none'; });
   const resetBtn = document.getElementById('resetBtn');
   if(resetBtn) resetBtn.style.display = canEditSystem() ? '' : 'none';
-  document.querySelectorAll('.navitem').forEach(b=> b.classList.toggle('active', b.dataset.tab===currentTab));
+  const logoutEmail = document.getElementById('logoutEmail');
+  if(logoutEmail) logoutEmail.textContent = window.__estoqueSessionEmail || accessProfile().email || '';
+  document.querySelectorAll('.navitem[data-tab]').forEach(b=> b.classList.toggle('active', b.dataset.tab===currentTab));
   const activeBtn = document.querySelector(`.navitem[data-tab="${currentTab}"]`);
   const topTitle = document.querySelector('#topbar .t1');
   if(activeBtn && topTitle) topTitle.textContent = activeBtn.childNodes[1]?.textContent?.trim() || activeBtn.textContent.trim();
@@ -273,7 +281,7 @@ function render(){
   const c = document.getElementById('content');
   const renderers = {
     dashboard: renderDashboard, estoque: renderEstoque, compras: renderCompras, alertas: renderAlertas,
-    relatorios: renderRelatorios, backup: renderBackup, importarNF: renderImportarNF,
+    relatorios: renderRelatorios, backup: renderBackup, importarNF: renderImportarNF, importarXML: renderImportarXML,
     conferenciaPedidos: renderConferenciaPedidos, seguranca: renderSeguranca,
     usuarios: renderUsuarios,
     brutos: ()=>renderCrud(defBrutos), fracionados: ()=>renderCrud(defFracionados), locais: ()=>renderCrud(defLocais),
@@ -2224,6 +2232,213 @@ function renderImportarNF(){
     saveDB();
     alert(count>0 ? `${count} item(ns) lançado(s) na Entrada da Central com sucesso!` : 'Nenhum item marcado para lançamento.');
     if(count>0){ nfImport = null; currentTab = 'entradasCentral'; }
+    render();
+  });
+}
+
+/* ============================= IMPORTAR NOTA FISCAL (XML) ============================= */
+let xmlImport = null; // {fileName, rawText, header:{fornecedor,nf,data}, itens:[...]}
+
+function xmlNum(value){
+  if(value==null || value==='') return 0;
+  const s = String(value).trim();
+  if(s.includes(',') && s.includes('.')) return parseBRNumber(s);
+  return Number(s.replace(',','.')) || 0;
+}
+function xmlTagText(parent, tag){
+  const el = parent ? parent.getElementsByTagName(tag)[0] : null;
+  return el ? (el.textContent || '').trim() : '';
+}
+function parseXmlDate(value){
+  if(!value) return '';
+  const m = String(value).match(/\d{4}-\d{2}-\d{2}/);
+  return m ? m[0] : '';
+}
+function parseNFeXml(text){
+  const doc = new DOMParser().parseFromString(text, 'application/xml');
+  const parseError = doc.getElementsByTagName('parsererror')[0];
+  if(parseError) throw new Error('XML inválido ou mal formatado.');
+  const inf = doc.getElementsByTagName('infNFe')[0] || doc;
+  const ide = inf.getElementsByTagName('ide')[0];
+  const emit = inf.getElementsByTagName('emit')[0];
+  const header = {
+    fornecedor: xmlTagText(emit, 'xNome') || xmlTagText(emit, 'xFant'),
+    nf: xmlTagText(ide, 'nNF'),
+    data: parseXmlDate(xmlTagText(ide, 'dhEmi') || xmlTagText(ide, 'dEmi')),
+  };
+  const itens = Array.from(inf.getElementsByTagName('det')).map(det=>{
+    const prod = det.getElementsByTagName('prod')[0];
+    const descricao = xmlTagText(prod, 'xProd');
+    const quantidade = xmlNum(xmlTagText(prod, 'qCom') || xmlTagText(prod, 'qTrib'));
+    const valorUnitario = xmlNum(xmlTagText(prod, 'vUnCom') || xmlTagText(prod, 'vUnTrib'));
+    return {
+      codigoNF: xmlTagText(prod, 'cProd'),
+      descricao,
+      unidade: xmlTagText(prod, 'uCom') || xmlTagText(prod, 'uTrib') || 'UN',
+      quantidade,
+      valorUnitario,
+      valorTotal: xmlNum(xmlTagText(prod, 'vProd')),
+    };
+  }).filter(item=>item.descricao && item.quantidade>0);
+  return { header, itens };
+}
+function xmlImportItemFromRaw(it){
+  const match = findMatchingProduto(it.descricao);
+  return {
+    descricao: it.descricao,
+    quantidade: it.quantidade,
+    valorUnitario: it.valorUnitario,
+    incluir: true,
+    matchProdutoNome: match ? match.produto.nome : '',
+    novoProduto: !match,
+    novaCategoria: 'Outros',
+    novaUnidade: mapUnidadeNF(it.unidade),
+    novoMinimo: 0,
+    novaValidadeDias: 0,
+  };
+}
+async function handleXMLFile(file){
+  const statusEl = document.getElementById('xmlStatus');
+  try{
+    if(statusEl){ statusEl.textContent = 'Lendo o XML...'; statusEl.className='hint'; }
+    const text = await file.text();
+    const parsed = parseNFeXml(text);
+    xmlImport = {
+      fileName: file.name,
+      rawText: text,
+      header: parsed.header,
+      itens: parsed.itens.map(xmlImportItemFromRaw),
+    };
+    render();
+  }catch(err){
+    if(statusEl){ statusEl.textContent = 'Erro ao ler o XML: ' + err.message; statusEl.className='hint warn'; }
+    else alert('Erro ao ler o XML: ' + err.message);
+  }
+}
+function updateXMLRowTotal(i){
+  const cell = document.querySelector(`.xmlTotalCell[data-i="${i}"]`);
+  if(cell) cell.textContent = fmtMoney(xmlImport.itens[i].quantidade * xmlImport.itens[i].valorUnitario);
+}
+function renderImportarXML(){
+  const c = document.getElementById('content');
+  let html = `<h1 class="pagetitle">Importar Nota Fiscal (XML) <span class="beta-note">BETA EM TESTES</span></h1>
+    <p class="pagesub">Envie o XML da NF-e para testar a leitura automática de itens, quantidade e preço de custo. A parte financeira/fiscal completa ainda não entra neste fluxo.</p>`;
+
+  html += `<div class="card"><h2>1. Selecione o XML</h2>
+    <div class="field" style="max-width:420px">
+      <label>Arquivo da Nota Fiscal (.xml)</label>
+      <input type="file" id="inputXML" accept="text/xml,application/xml,.xml">
+    </div>
+    <div id="xmlStatus" class="hint">${xmlImport ? `XML lido: <strong>${escapeHtml(xmlImport.fileName)}</strong> — ${xmlImport.itens.length} item(ns) encontrado(s).` : 'Campo em beta: confira os itens antes de lançar.'}</div>
+  </div>`;
+
+  if(xmlImport){
+    html += `<div class="card"><h2>2. Confira os dados da nota</h2>
+      <div class="entryform">
+        <div class="field"><label>Fornecedor</label><input type="text" id="xmlFornecedor" value="${escapeHtml(xmlImport.header.fornecedor)}"></div>
+        <div class="field"><label>Nº da NF</label><input type="text" id="xmlNumero" value="${escapeHtml(xmlImport.header.nf)}"></div>
+        <div class="field"><label>Data de Emissão</label><input type="date" id="xmlData" value="${xmlImport.header.data||''}"></div>
+      </div>
+    </div>`;
+
+    html += `<div class="card"><h2>3. Itens Encontrados (${xmlImport.itens.length})</h2>`;
+    if(xmlImport.itens.length===0){
+      html += `<div class="empty">Não encontramos itens compatíveis com NF-e neste XML. Confira o arquivo e tente novamente.</div>`;
+    } else {
+      html += `<table><thead><tr><th></th><th>Item no XML</th><th>Quantidade</th><th>Preço de Custo</th><th>Total</th><th>Produto no Cadastro</th></tr></thead><tbody>`;
+      xmlImport.itens.forEach((item, i)=>{
+        html += `<tr>
+          <td><input type="checkbox" class="xmlIncluir" data-i="${i}" ${item.incluir?'checked':''}></td>
+          <td><input type="text" class="xmlDesc" data-i="${i}" value="${escapeHtml(item.descricao)}" style="width:220px"></td>
+          <td><input type="number" step="0.01" class="xmlQtd" data-i="${i}" value="${item.quantidade}" style="width:80px"></td>
+          <td><input type="number" step="0.01" class="xmlPreco" data-i="${i}" value="${item.valorUnitario}" style="width:90px"></td>
+          <td class="xmlTotalCell" data-i="${i}">${fmtMoney(item.quantidade*item.valorUnitario)}</td>
+          <td>
+            <select class="xmlProduto" data-i="${i}">
+              ${db.brutos.map(b=>`<option value="${escapeHtml(b.nome)}" ${item.matchProdutoNome===b.nome && !item.novoProduto?'selected':''}>${escapeHtml(b.nome)}</option>`).join('')}
+              <option value="__novo__" ${item.novoProduto?'selected':''}>+ Cadastrar como novo produto</option>
+            </select>
+          </td>
+        </tr>`;
+        if(item.novoProduto){
+          html += `<tr><td></td><td colspan="5">
+            <div class="entryform" style="background:var(--gold-lighter);padding:10px;border-radius:6px">
+              <div class="field"><label>Categoria</label><select class="xmlNovaCategoria" data-i="${i}">${categoriaOptions().map(cat=>`<option ${item.novaCategoria===cat?'selected':''}>${cat}</option>`).join('')}</select></div>
+              <div class="field"><label>Unidade</label><select class="xmlNovaUnidade" data-i="${i}">${UNIDADES.map(u=>`<option ${item.novaUnidade===u?'selected':''}>${u}</option>`).join('')}</select></div>
+              <div class="field"><label>Estoque Mínimo</label><input type="number" step="0.01" class="xmlNovoMinimo" data-i="${i}" value="${item.novoMinimo}"></div>
+              <div class="field"><label>Validade Padrão (dias)</label><input type="number" class="xmlNovaValidade" data-i="${i}" value="${item.novaValidadeDias}"></div>
+            </div>
+          </td></tr>`;
+        }
+      });
+      html += `</tbody></table>`;
+      html += `<div style="margin-top:16px"><button class="btn" id="btnConfirmarXML">Confirmar e Lançar no Estoque</button></div>`;
+    }
+    html += `</div>`;
+
+    html += `<div class="card"><h3 style="margin-top:0">XML lido (conferência)</h3>
+      <button class="btn secondary" id="btnToggleXMLRaw">Mostrar/Ocultar XML</button>
+      <pre id="xmlRawText" style="display:none;white-space:pre-wrap;font-size:11.5px;background:var(--gray-bg);padding:12px;border-radius:6px;margin-top:10px;max-height:400px;overflow:auto">${escapeHtml(xmlImport.rawText)}</pre>
+    </div>`;
+  }
+
+  c.innerHTML = html;
+  const inputXML = c.querySelector('#inputXML');
+  if(inputXML) inputXML.addEventListener('change', (e)=>{ const f=e.target.files[0]; if(f) handleXMLFile(f); });
+  if(!xmlImport) return;
+
+  c.querySelector('#xmlFornecedor')?.addEventListener('input', e=> xmlImport.header.fornecedor = e.target.value);
+  c.querySelector('#xmlNumero')?.addEventListener('input', e=> xmlImport.header.nf = e.target.value);
+  c.querySelector('#xmlData')?.addEventListener('input', e=> xmlImport.header.data = e.target.value);
+  c.querySelector('#btnToggleXMLRaw')?.addEventListener('click', ()=>{
+    const pre = c.querySelector('#xmlRawText'); pre.style.display = pre.style.display==='none' ? 'block' : 'none';
+  });
+  c.querySelectorAll('.xmlIncluir').forEach(el=> el.addEventListener('change', e=>{ xmlImport.itens[+e.target.dataset.i].incluir = e.target.checked; }));
+  c.querySelectorAll('.xmlDesc').forEach(el=> el.addEventListener('input', e=>{ xmlImport.itens[+e.target.dataset.i].descricao = e.target.value; }));
+  c.querySelectorAll('.xmlQtd').forEach(el=> el.addEventListener('input', e=>{ const i=+e.target.dataset.i; xmlImport.itens[i].quantidade = parseFloat(e.target.value)||0; updateXMLRowTotal(i); }));
+  c.querySelectorAll('.xmlPreco').forEach(el=> el.addEventListener('input', e=>{ const i=+e.target.dataset.i; xmlImport.itens[i].valorUnitario = parseFloat(e.target.value)||0; updateXMLRowTotal(i); }));
+  c.querySelectorAll('.xmlProduto').forEach(el=> el.addEventListener('change', e=>{
+    const i=+e.target.dataset.i; const v = e.target.value;
+    if(v==='__novo__'){ xmlImport.itens[i].novoProduto = true; xmlImport.itens[i].matchProdutoNome=''; }
+    else { xmlImport.itens[i].novoProduto = false; xmlImport.itens[i].matchProdutoNome = v; }
+    render();
+  }));
+  c.querySelectorAll('.xmlNovaCategoria').forEach(el=> el.addEventListener('change', e=>{ xmlImport.itens[+e.target.dataset.i].novaCategoria = e.target.value; }));
+  c.querySelectorAll('.xmlNovaUnidade').forEach(el=> el.addEventListener('change', e=>{ xmlImport.itens[+e.target.dataset.i].novaUnidade = e.target.value; }));
+  c.querySelectorAll('.xmlNovoMinimo').forEach(el=> el.addEventListener('input', e=>{ xmlImport.itens[+e.target.dataset.i].novoMinimo = parseFloat(e.target.value)||0; }));
+  c.querySelectorAll('.xmlNovaValidade').forEach(el=> el.addEventListener('input', e=>{ xmlImport.itens[+e.target.dataset.i].novaValidadeDias = parseFloat(e.target.value)||0; }));
+
+  c.querySelector('#btnConfirmarXML')?.addEventListener('click', ()=>{
+    if(!ensureCanEdit()) return;
+    const header = xmlImport.header;
+    if(!header.data){ alert('Informe a data de emissão da nota.'); return; }
+    let count = 0;
+    xmlImport.itens.forEach(item=>{
+      if(!item.incluir) return;
+      let nomeProduto = item.novoProduto ? item.descricao.trim() : item.matchProdutoNome;
+      if(!nomeProduto) return;
+      if(item.novoProduto && !db.brutos.some(b=>b.nome.toLowerCase()===nomeProduto.toLowerCase())){
+        db.brutos.push({
+          nome: nomeProduto, categoria: item.novaCategoria||'Outros', unidade: item.novaUnidade||'UN',
+          estoqueMinimo: item.novoMinimo||0, fornecedor: header.fornecedor||'', precoMedio: item.valorUnitario||0,
+          validadeDias: item.novaValidadeDias||0,
+        });
+      }
+      const prodCad = db.brutos.find(b=>b.nome===nomeProduto);
+      let validade = '';
+      if(prodCad && header.data){
+        const d = new Date(header.data+'T00:00:00'); d.setDate(d.getDate()+Number(prodCad.validadeDias||0));
+        validade = d.toISOString().slice(0,10);
+      }
+      db.entradasCentral.push({
+        data: header.data, nf: header.nf||'', produto: nomeProduto, fornecedor: header.fornecedor||'',
+        quantidade: item.quantidade, precoUnitario: item.valorUnitario, validade,
+      });
+      count++;
+    });
+    saveDB();
+    alert(count>0 ? `${count} item(ns) lançado(s) na Entrada da Central com sucesso!` : 'Nenhum item marcado para lançamento.');
+    if(count>0){ xmlImport = null; currentTab = 'entradasCentral'; }
     render();
   });
 }

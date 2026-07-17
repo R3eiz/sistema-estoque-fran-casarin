@@ -9,7 +9,8 @@ const nextConfig = {
   basePath: isPages ? `/${repoName}` : "",
   assetPrefix: isPages ? `/${repoName}/` : "",
   env: {
-    NEXT_PUBLIC_BASE_PATH: isPages ? `/${repoName}` : ""
+    NEXT_PUBLIC_BASE_PATH: isPages ? `/${repoName}` : "",
+    NEXT_PUBLIC_APP_VERSION: "xml-beta-20260717"
   }
 };
 

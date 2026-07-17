@@ -39,6 +39,7 @@ declare global {
       resetPassword: (input: { user_id: string; senha: string }) => Promise<unknown>;
       listAudit: () => Promise<unknown[]>;
     };
+    __estoqueSessionEmail?: string;
   }
 }
 
@@ -205,6 +206,15 @@ export default function LegacyStockSystem() {
     window.location.reload();
   }
 
+  useEffect(() => {
+    window.__estoqueSessionEmail = session?.user.email ?? "";
+    const onLegacyLogout = () => {
+      void handleLogout();
+    };
+    window.addEventListener("estoque:logout", onLegacyLogout);
+    return () => window.removeEventListener("estoque:logout", onLegacyLogout);
+  }, [session?.user.email]);
+
   if (!session) {
     return (
       <main className="auth-shell">
@@ -276,10 +286,6 @@ export default function LegacyStockSystem() {
 
   return (
     <>
-      <div className="session-pill">
-        <span>{session.user.email}</span>
-        <button type="button" onClick={handleLogout}>Sair</button>
-      </div>
       <LegacyHost markup={markup} />
       <div className={`save-toast ${toast ? "show" : ""}`} role="status" aria-live="polite">
         {toast}
