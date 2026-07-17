@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState, type CSSProperties } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "../lib/supabase";
 import {
@@ -208,11 +208,22 @@ export default function LegacyStockSystem() {
   if (!session) {
     return (
       <main className="auth-shell">
+        <aside
+          className="auth-hero"
+          style={{ "--auth-food-bg": `url(${basePath}/assets/login-buffet-bg.png)` } as CSSProperties}
+        >
+          <img src={`${basePath}/assets/logo-fran-casarin-transparent-tight.png`} alt="Franciele Casarin Buffet" className="auth-hero-logo" />
+          <h2>Sistema de Controle de Estoque</h2>
+          <div className="auth-gold-line" />
+          <p>Gestão inteligente para o seu buffet, com controle total do estoque.</p>
+          <div className="auth-feature"><span className="feat-icon box" /><div><strong>Controle completo</strong><small>Acompanhe entradas, saídas e níveis de estoque em tempo real.</small></div></div>
+          <div className="auth-feature"><span className="feat-icon chart" /><div><strong>Relatórios inteligentes</strong><small>Indicadores que ajudam na tomada de decisão.</small></div></div>
+          <div className="auth-feature"><span className="feat-icon shield" /><div><strong>Seguro e confiável</strong><small>Dados protegidos com login e sincronização automática.</small></div></div>
+        </aside>
         <section className="auth-panel">
-          <img src={`${basePath}/assets/logo-fran-casarin-cropped.png`} alt="Fran Casarin Buffet" className="auth-logo" />
           <div>
-            <h1>Estoque Fran Casarin</h1>
-            <p>Acesse com e-mail e senha para usar o estoque com banco real, login seguro e sincronizacao online.</p>
+            <h1>Acesse sua conta</h1>
+            <p>Entre com seu e-mail e senha para acessar o sistema de controle de estoque.</p>
           </div>
 
           <div className="auth-tabs" role="tablist" aria-label="Modo de acesso">
@@ -244,7 +255,7 @@ export default function LegacyStockSystem() {
           </form>
 
           {authMessage && <p className="auth-message">{authMessage}</p>}
-          <p className="auth-note">O primeiro cadastro vira administrador do sistema. Depois, novos usuarios podem ser ajustados no Supabase.</p>
+          <p className="auth-note">O primeiro cadastro vira administrador do sistema. Depois, novos usuários podem ser ajustados no Supabase.</p>
         </section>
       </main>
     );
@@ -254,7 +265,7 @@ export default function LegacyStockSystem() {
     return (
       <main className="auth-shell">
         <section className="auth-panel">
-          <img src={`${basePath}/assets/logo-fran-casarin-cropped.png`} alt="Fran Casarin Buffet" className="auth-logo" />
+          <img src={`${basePath}/assets/logo-fran-casarin-transparent-tight.png`} alt="Fran Casarin Buffet" className="auth-logo" />
           <h1>Preparando sistema</h1>
           <p>{bootState}</p>
           {session && <button type="button" onClick={handleLogout}>Sair</button>}
@@ -276,3 +287,4 @@ export default function LegacyStockSystem() {
     </>
   );
 }
+

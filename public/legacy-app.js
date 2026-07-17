@@ -259,6 +259,9 @@ function setActiveNav(){
   const resetBtn = document.getElementById('resetBtn');
   if(resetBtn) resetBtn.style.display = canEditSystem() ? '' : 'none';
   document.querySelectorAll('.navitem').forEach(b=> b.classList.toggle('active', b.dataset.tab===currentTab));
+  const activeBtn = document.querySelector(`.navitem[data-tab="${currentTab}"]`);
+  const topTitle = document.querySelector('#topbar .t1');
+  if(activeBtn && topTitle) topTitle.textContent = activeBtn.childNodes[1]?.textContent?.trim() || activeBtn.textContent.trim();
 }
 
 /* ============================= RENDER ROOT ============================= */
@@ -701,7 +704,7 @@ function renderCrud(def){
   const btnLabel = document.createElement('label'); btnLabel.innerHTML='&nbsp;'; btnField.appendChild(btnLabel);
   const btnRow = document.createElement('div'); btnRow.style.cssText = 'display:flex;gap:8px';
   const btn = document.createElement('button'); btn.type='submit'; btn.className='btn';
-  btn.textContent = editing!=null ? '💾 Salvar Alterações' : '+ Adicionar';
+  btn.textContent = editing!=null ? 'Salvar alterações' : '+ Adicionar';
   btnRow.appendChild(btn);
   if(editing!=null){
     const cancelBtn = document.createElement('button'); cancelBtn.type='button'; cancelBtn.className='btn secondary';
@@ -1464,6 +1467,28 @@ function filterByDateRange(arr, inicio, fim){
   return arr.filter(r=> r.data && r.data>=inicio && r.data<=fim);
 }
 
+function renderReportBars(title, entries, formatValue){
+  const rows = entries
+    .map(([label,value])=>[label, Number(value||0)])
+    .filter(([,value])=>Number.isFinite(value) && value!==0)
+    .sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]))
+    .slice(0,8);
+  if(rows.length===0) return '';
+  const max = Math.max(1, ...rows.map(([,value])=>Math.abs(value)));
+  const fmt = formatValue || fmtNum;
+  return `<div class="report-visual">
+    <div class="report-visual-head"><h3>${title}</h3><span>Top ${rows.length}</span></div>
+    <div class="report-bars">
+      ${rows.map(([label,value])=>`
+        <div class="report-bar-row">
+          <div class="report-bar-label" title="${label}">${label}</div>
+          <div class="report-bar-track"><span class="report-bar-fill ${value<0?'negative':''}" style="width:${Math.max(4, Math.abs(value)/max*100)}%"></span></div>
+          <div class="report-bar-value">${fmt(value)}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
 function renderRelatorios(){
   const c = document.getElementById('content');
   let html = `<h1 class="pagetitle">Relatórios</h1><p class="pagesub">Escolha o relatório e o período desejado.</p>`;
@@ -1516,7 +1541,7 @@ function renderRelatorios(){
       });
       html += `<tr class="subtotal-row"><td>Total</td><td>${fmtNum(totalQtd)}</td><td>${fmtMoney(totalValor)}</td><td colspan="2"></td></tr>`;
       html += `</tbody></table>`;
-      html += `<h3>Gráfico — Quantidade Comprada por Produto</h3><canvas id="reportChartCanvas" height="90"></canvas>`;
+      html += renderReportBars('Quantidade comprada por produto', Object.entries(porProduto).map(([prod,x])=>[prod,x.quantidade]), fmtNum);
     }
     html += `</div>`;
   } else if(reportType==='saidasCentral'){
@@ -1526,7 +1551,9 @@ function renderRelatorios(){
       html += `<div class="empty">Nenhuma saída da Central registrada nesse período.</div>`;
     } else {
       html += renderSaidasPorDestino(saidasCentralP, destinosCentralOptions());
-      html += `<h3>Gráfico — Total por Destino</h3><canvas id="reportChartCanvas" height="90"></canvas>`;
+      const porDestinoChart = {};
+      saidasCentralP.forEach(r=>{ porDestinoChart[r.destino] = (porDestinoChart[r.destino]||0) + Number(r.quantidade||0); });
+      html += renderReportBars('Total por destino', Object.entries(porDestinoChart), fmtNum);
     }
     html += `</div>`;
   } else if(reportType==='producao'){
@@ -1551,7 +1578,7 @@ function renderRelatorios(){
       });
       html += `<tr class="subtotal-row"><td>Total</td><td>${fmtNum(totalProduzida)}</td><td>${fmtNum(totalBruto)}</td></tr>`;
       html += `</tbody></table>`;
-      html += `<h3>Gráfico — Quantidade Produzida por Produto</h3><canvas id="reportChartCanvas" height="90"></canvas>`;
+      html += renderReportBars('Quantidade produzida por produto', Object.entries(porProduto).map(([prod,x])=>[prod,x.produzida]), fmtNum);
     }
     html += `</div>`;
   } else if(reportType==='saidasFracionado'){
@@ -1561,7 +1588,9 @@ function renderRelatorios(){
       html += `<div class="empty">Nenhuma saída de fracionados registrada nesse período.</div>`;
     } else {
       html += renderSaidasPorDestino(saidasFracP, destinosFracionadoOptions());
-      html += `<h3>Gráfico — Total por Destino</h3><canvas id="reportChartCanvas" height="90"></canvas>`;
+      const porDestinoFracChart = {};
+      saidasFracP.forEach(r=>{ porDestinoFracChart[r.destino] = (porDestinoFracChart[r.destino]||0) + Number(r.quantidade||0); });
+      html += renderReportBars('Total por destino', Object.entries(porDestinoFracChart), fmtNum);
     }
     html += `</div>`;
   } else if(reportType==='ajustes'){
@@ -1582,7 +1611,9 @@ function renderRelatorios(){
       const corTotal = totalDiferenca>0 ? 'var(--ok, #1a7a3c)' : (totalDiferenca<0 ? 'var(--danger, #b3261e)' : 'inherit');
       html += `<tr class="subtotal-row"><td colspan="4">Total (ajuste líquido no período)</td><td style="color:${corTotal}">${totalDiferenca>0?'+':''}${fmtNum(totalDiferenca)}</td><td colspan="2"></td></tr>`;
       html += `</tbody></table>`;
-      html += `<h3>Gráfico — Diferença por Produto</h3><canvas id="reportChartCanvas" height="90"></canvas>`;
+      const porProdutoAjuste = {};
+      ajustesP.forEach(a=>{ porProdutoAjuste[a.produto] = (porProdutoAjuste[a.produto]||0) + Number(a.diferenca||0); });
+      html += renderReportBars('Diferença por produto', Object.entries(porProdutoAjuste), fmtNum);
     }
     html += `</div>`;
   }
@@ -1680,8 +1711,13 @@ function renderDashboard(){
   const alertasVal = getAlertasValidade();
   const vencidosUrgentes = alertasVal.filter(x=>x.dias<=3).length;
   const atencao = alertasVal.filter(x=>x.dias>3 && x.dias<=7).length;
+  const hoje = todayStr();
+  const entradasHoje = db.entradasCentral.filter(e=>e.data===hoje);
+  const saidasHojeCount = db.saidasCentral.filter(s=>s.data===hoje).length + db.saidasFracionado.filter(s=>s.data===hoje).length;
+  const valorEntradasHoje = entradasHoje.reduce((a,e)=>a+(e.quantidade||0)*(e.precoUnitario||0),0);
+  const topMinimos = getAlertasMinimo().filter(x=>x.abaixo).slice(0,5);
 
-  let html = `<h1 class="pagetitle">Dashboard Gerencial</h1><p class="pagesub">Indicadores atualizados automaticamente a partir de todos os lançamentos.</p>`;
+  let html = `<div class="dash-head"><div><h1 class="pagetitle">Olá, Administrador</h1><p class="pagesub">Aqui está um resumo da sua gestão de estoque hoje.</p></div><button class="btn secondary" type="button" onclick="render()">Atualizar</button></div>`;
 
   html += `<div class="kpi-grid">
     ${kpi(db.brutos.length,"Produtos Brutos Cadastrados")}
@@ -1689,12 +1725,15 @@ function renderDashboard(){
     ${kpi(db.locais.length,"Locais Cadastrados")}
     ${kpi(fmtMoney(valorRecebido),"Valor Total Recebido na Central")}
     ${kpi(fmtMoney(valorCentral),"Valor em Estoque na Central")}
-    ${kpi(alertasMin,"Itens Abaixo do Mínimo",alertasMin>0)}
-    ${kpi(vencidosUrgentes,"Lotes Vencidos ou Urgentes (≤3 dias)",vencidosUrgentes>0)}
-    ${kpi(atencao,"Lotes em Atenção (≤7 dias)",atencao>0)}
   </div>`;
 
-  html += `<div class="card"><h2>Itens em Estoque por Local</h2>`;
+  html += `<div class="alert-strip">
+    <div class="alert-card danger"><strong>${alertasMin}</strong><span>itens abaixo do mínimo</span></div>
+    <div class="alert-card warn"><strong>${vencidosUrgentes}</strong><span>lotes vencidos ou urgentes (≤ 3 dias)</span></div>
+    <div class="alert-card neutral"><strong>${atencao}</strong><span>lotes em atenção (≤ 7 dias)</span></div>
+  </div>`;
+
+  html += `<div class="dashboard-grid"><div class="card"><h2>Itens em estoque por local</h2>`;
   const counts = db.locais.map(l=>{
     let n=0;
     if(l.tipo==='Central') n = db.brutos.filter(b=>saldoCentral(b.nome)>0).length;
@@ -1708,17 +1747,16 @@ function renderDashboard(){
   });
   html += `</div>`;
 
-  html += `<div class="card"><h2>Últimos Alertas de Validade</h2><table><thead><tr>
-    <th>Produto</th><th>Tipo</th><th>Validade</th><th>Dias</th><th>Status</th></tr></thead><tbody>`;
-  if(alertasVal.length===0){ html += `<tr><td colspan="5" class="empty">Sem lotes registrados.</td></tr>`; }
-  alertasVal.slice(0,6).forEach(x=>{
-    html += `<tr><td><strong>${x.produto}</strong></td><td>${x.tipo}</td><td>${fmtDate(x.validade)}</td><td>${x.dias}</td><td>${validadeBadge(x.dias)}</td></tr>`;
+  html += `<div><div class="card"><h2>Movimentações de hoje</h2><div class="today-moves"><div><small>Entradas</small><strong>${entradasHoje.length}</strong><span>${fmtMoney(valorEntradasHoje)}</span></div><div><small>Saídas</small><strong>${saidasHojeCount}</strong><span>registros</span></div></div></div>`;
+  html += `<div class="card"><h2>Top 5 itens abaixo do mínimo</h2><table><thead><tr><th>Produto</th><th>Local</th><th>Atual</th><th>Mínimo</th></tr></thead><tbody>`;
+  if(topMinimos.length===0){ html += `<tr><td colspan="4" class="empty">Nenhum item abaixo do mínimo.</td></tr>`; }
+  topMinimos.forEach(x=>{
+    html += `<tr><td><strong>${x.produto}</strong></td><td>${x.local||'Central'}</td><td>${fmtNum(x.saldo)}</td><td>${fmtNum(x.minimo)}</td></tr>`;
   });
-  html += `</tbody></table></div>`;
+  html += `</tbody></table></div></div></div>`;
 
   c.innerHTML = html;
-}
-function kpi(val,lbl,alert){
+}function kpi(val,lbl,alert){
   return `<div class="kpi${alert?' alert':''}"><div class="val">${val}</div><div class="lbl">${lbl}</div></div>`;
 }
 

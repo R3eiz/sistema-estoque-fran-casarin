@@ -1,7 +1,7 @@
 <div id="lockScreen">
   <div class="lockbox">
-    <div class="mark logo-mark"><img src="assets/logo-fran-casarin-cropped.png" alt="Fran Casarin Buffet"></div>
-    <h2>Sistema de Estoque — Fran Casarin</h2>
+    <div class="mark logo-mark"><img src="assets/logo-fran-casarin-transparent-tight.png" alt="Fran Casarin Buffet"></div>
+    <h2>Sistema de Estoque &mdash; Fran Casarin</h2>
     <p>Digite a senha para continuar.</p>
     <form id="lockForm">
       <input type="password" id="lockPasswordInput" placeholder="Senha" autocomplete="off">
@@ -12,43 +12,40 @@
   </div>
 </div>
 <div id="topbar">
-  <button type="button" id="menuToggle" aria-label="Abrir menu">☰</button>
-  <div class="mark logo-mark"><img src="assets/logo-fran-casarin-cropped.png" alt="Fran Casarin Buffet"></div>
-  <div class="titles">
-    <div class="t1">FRAN CASARIN</div>
-    <div class="t2">Sistema de Controle de Estoque</div>
-  </div>
+  <button type="button" id="menuToggle" aria-label="Abrir menu">&#9776;</button>
+  <div class="titles"><div class="t1">Dashboard</div><div class="t2">Sistema de Controle de Estoque</div></div>
   <div class="spacer"></div>
   <div class="today" id="todayLabel"></div>
 </div>
 <div id="sidebarOverlay"></div>
 <div id="layout">
   <nav id="sidebar">
-    <button type="button" class="navgroup-label" data-group="visaoGeral">Visão Geral <span class="chevron">▾</span></button>
+    <div class="sidebar-brand"><img src="assets/logo-fran-casarin-transparent-tight.png" alt="Fran Casarin Buffet"></div>
+    <button type="button" class="navgroup-label" data-group="visaoGeral">Principal <span class="chevron">&#9662;</span></button>
     <div class="navgroup-items" data-group-items="visaoGeral">
       <button class="navitem" data-tab="dashboard"><span class="dot"></span>Dashboard</button>
       <button class="navitem" data-tab="estoque"><span class="dot"></span>Estoque Atual</button>
-      <button class="navitem" data-tab="compras"><span class="dot"></span>Sugestão de Pedido <span class="badge" id="badgeCompras" style="display:none"></span></button>
+      <button class="navitem" data-tab="compras"><span class="dot"></span>Sugest&atilde;o de Pedido <span class="badge" id="badgeCompras" style="display:none"></span></button>
       <button class="navitem" data-tab="alertas"><span class="dot"></span>Alertas <span class="badge" id="badgeAlertas" style="display:none"></span></button>
-      <button class="navitem" data-tab="relatorios"><span class="dot"></span>Relatórios</button>
+      <button class="navitem" data-tab="relatorios"><span class="dot"></span>Relat&oacute;rios</button>
     </div>
 
-    <button type="button" class="navgroup-label" data-group="movEntradas">Movimentações — Entradas <span class="chevron">▾</span></button>
+    <button type="button" class="navgroup-label" data-group="movEntradas">Movimenta&ccedil;&otilde;es &mdash; Entradas <span class="chevron">&#9662;</span></button>
     <div class="navgroup-items" data-group-items="movEntradas">
       <button class="navitem" data-tab="importarNF"><span class="dot"></span>Importar Nota Fiscal (PDF)</button>
-      <button class="navitem" data-tab="conferenciaPedidos"><span class="dot"></span>Pedido Feito — Conferência <span class="badge" id="badgeConferencia" style="display:none"></span></button>
+      <button class="navitem" data-tab="conferenciaPedidos"><span class="dot"></span>Pedido Feito &mdash; Confer&ecirc;ncia <span class="badge" id="badgeConferencia" style="display:none"></span></button>
       <button class="navitem" data-tab="entradasCentral"><span class="dot"></span>Entrada na Central</button>
-      <button class="navitem" data-tab="producoes"><span class="dot"></span>Produção de Fracionados</button>
+      <button class="navitem" data-tab="producoes"><span class="dot"></span>Produ&ccedil;&atilde;o de Fracionados</button>
       <button class="navitem" data-tab="ajustesEstoque"><span class="dot"></span>Ajuste de Estoque</button>
     </div>
 
-    <button type="button" class="navgroup-label" data-group="movSaidas">Movimentações — Saídas <span class="chevron">▾</span></button>
+    <button type="button" class="navgroup-label" data-group="movSaidas">Movimenta&ccedil;&otilde;es &mdash; Sa&iacute;das <span class="chevron">&#9662;</span></button>
     <div class="navgroup-items" data-group-items="movSaidas">
-      <button class="navitem" data-tab="saidasCentral"><span class="dot"></span>Saída da Central</button>
-      <button class="navitem" data-tab="saidasFracionado"><span class="dot"></span>Saída de Fracionados</button>
+      <button class="navitem" data-tab="saidasCentral"><span class="dot"></span>Sa&iacute;da da Central</button>
+      <button class="navitem" data-tab="saidasFracionado"><span class="dot"></span>Sa&iacute;da de Fracionados</button>
     </div>
 
-    <button type="button" class="navgroup-label" data-group="cadastros">Cadastros <span class="chevron">▾</span></button>
+    <button type="button" class="navgroup-label" data-group="cadastros">Cadastros <span class="chevron">&#9662;</span></button>
     <div class="navgroup-items" data-group-items="cadastros">
       <button class="navitem" data-tab="brutos"><span class="dot"></span>Produtos Brutos</button>
       <button class="navitem" data-tab="fracionados"><span class="dot"></span>Produtos Fracionados</button>
@@ -56,14 +53,15 @@
       <button class="navitem" data-tab="categorias"><span class="dot"></span>Categorias</button>
     </div>
 
-    <button type="button" class="navgroup-label" data-group="sistema">Sistema <span class="chevron">▾</span></button>
+    <button type="button" class="navgroup-label" data-group="sistema">Sistema <span class="chevron">&#9662;</span></button>
     <div class="navgroup-items" data-group-items="sistema">
-      <button class="navitem master-only" data-tab="usuarios"><span class="dot"></span>Usuários e Logs</button>
+      <button class="navitem master-only" data-tab="usuarios"><span class="dot"></span>Usu&aacute;rios e Logs</button>
       <button class="navitem" data-tab="backup"><span class="dot"></span>Backup</button>
-      <button class="navitem" data-tab="seguranca"><span class="dot"></span>Segurança</button>
+      <button class="navitem" data-tab="seguranca"><span class="dot"></span>Seguran&ccedil;a</button>
     </div>
 
-    <button class="resetbtn" id="resetBtn">↺ Restaurar dados de exemplo</button>
+    <button class="resetbtn" id="resetBtn">&#8635; Restaurar dados de exemplo</button>
+    <div class="helpbox">Central de Ajuda</div>
   </nav>
   <main id="content"></main>
 </div>
