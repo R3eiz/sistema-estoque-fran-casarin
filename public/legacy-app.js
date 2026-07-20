@@ -1558,7 +1558,7 @@ function renderRelatorios(){
     if(saidasCentralP.length===0){
       html += `<div class="empty">Nenhuma saída da Central registrada nesse período.</div>`;
     } else {
-      html += renderSaidasPorDestino(saidasCentralP, destinosCentralOptions());
+      html += renderSaidasCentralPorDestino(saidasCentralP, destinosCentralOptions());
       const porDestinoChart = {};
       saidasCentralP.forEach(r=>{ porDestinoChart[r.destino] = (porDestinoChart[r.destino]||0) + Number(r.quantidade||0); });
       html += renderReportBars('Total por destino', Object.entries(porDestinoChart), fmtNum);
@@ -1707,6 +1707,74 @@ function renderSaidasPorDestino(rows, destinosOrdenados){
     grandTotal += subtotal;
   });
   html += `</tbody></table>`;
+  return html;
+}
+
+function precoUnitarioBruto(produto){
+  const bruto = db.brutos.find(b=>b.nome===produto);
+  if(bruto && Number(bruto.precoMedio||0)>0) return Number(bruto.precoMedio||0);
+  const entradas = db.entradasCentral.filter(e=>e.produto===produto && Number(e.precoUnitario||0)>0);
+  if(entradas.length===0) return 0;
+  const totalQtd = entradas.reduce((a,e)=>a+Number(e.quantidade||0),0);
+  const totalValor = entradas.reduce((a,e)=>a+Number(e.quantidade||0)*Number(e.precoUnitario||0),0);
+  return totalQtd>0 ? totalValor/totalQtd : 0;
+}
+
+function renderSaidasCentralPorDestino(rows, destinosOrdenados){
+  const todosDestinos = [...destinosOrdenados];
+  [...new Set(rows.map(r=>r.destino).filter(Boolean))].forEach(d=>{ if(!todosDestinos.includes(d)) todosDestinos.push(d); });
+  const grupos = [];
+  todosDestinos.forEach(destino=>{
+    const rowsDestino = rows.filter(r=>r.destino===destino);
+    if(rowsDestino.length===0) return;
+    const porProduto = {};
+    rowsDestino.forEach(r=>{
+      const produto = r.produto || 'Produto sem nome';
+      porProduto[produto] = porProduto[produto] || {produto, quantidade:0, precoUnitario:precoUnitarioBruto(produto)};
+      porProduto[produto].quantidade += Number(r.quantidade||0);
+    });
+    const itens = Object.values(porProduto).sort((a,b)=>a.produto.localeCompare(b.produto,'pt-BR'));
+    const totalQuantidade = itens.reduce((a,item)=>a+Number(item.quantidade||0),0);
+    const totalValor = itens.reduce((a,item)=>a+Number(item.quantidade||0)*Number(item.precoUnitario||0),0);
+    grupos.push({destino, itens, totalQuantidade, totalValor});
+  });
+  if(grupos.length===0) return `<div class="empty">Nenhuma saída da Central registrada nesse período.</div>`;
+
+  let html = `<div class="report-note"><strong>Resumo por unidade:</strong> cada destino possui seu próprio subtotal de quantidade e valor. Os valores de unidades diferentes não são misturados.</div>`;
+  html += `<div class="destination-report-wrap"><table class="destination-report"><thead><tr>
+    <th>Unidade que recebeu</th><th>Produto</th><th class="num">Quantidade</th><th class="num">Preço unitário</th><th class="num">Valor recebido pela unidade</th>
+  </tr></thead><tbody>`;
+  grupos.forEach(grupo=>{
+    html += `<tr class="destination-row"><td colspan="5">${escapeHtml(grupo.destino)}</td></tr>`;
+    grupo.itens.forEach(item=>{
+      const valor = item.quantidade * item.precoUnitario;
+      html += `<tr>
+        <td></td>
+        <td class="product-name">${escapeHtml(item.produto)}</td>
+        <td class="num">${fmtNum(item.quantidade)}</td>
+        <td class="num ${item.precoUnitario<=0?'price-missing':''}">${item.precoUnitario>0?fmtMoney(item.precoUnitario):'Sem preço'}</td>
+        <td class="num"><strong>${fmtMoney(valor)}</strong></td>
+      </tr>`;
+    });
+    html += `<tr class="destination-subtotal">
+      <td></td>
+      <td>Subtotal recebido por ${escapeHtml(grupo.destino)}</td>
+      <td class="num">${fmtNum(grupo.totalQuantidade)}</td>
+      <td class="num">—</td>
+      <td class="num">${fmtMoney(grupo.totalValor)}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>`;
+  html += `<div class="unit-summary-title">Totais separados por unidade</div><div class="destination-summary-grid">`;
+  grupos.forEach(grupo=>{
+    html += `<div class="destination-summary-card">
+      <div class="name">${escapeHtml(grupo.destino)}</div>
+      <div class="line"><span>Quantidade recebida</span><strong>${fmtNum(grupo.totalQuantidade)}</strong></div>
+      <div class="line"><span>Valor recebido</span><strong>${fmtMoney(grupo.totalValor)}</strong></div>
+    </div>`;
+  });
+  html += `</div>`;
+  html += `<p class="hint">Os preços vêm do preço médio cadastrado em Produtos Brutos. Quando não houver preço cadastrado, o valor aparece como sem preço para conferência.</p>`;
   return html;
 }
 
