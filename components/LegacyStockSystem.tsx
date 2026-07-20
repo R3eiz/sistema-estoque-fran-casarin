@@ -45,7 +45,7 @@ declare global {
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const assetVersion = process.env.NEXT_PUBLIC_APP_VERSION ?? "local";
-const defaultEmail = "reinan3323@gmail.com";
+const defaultEmail = "";
 
 const LegacyHost = memo(function LegacyHost({ markup }: { markup: string }) {
   return <div dangerouslySetInnerHTML={{ __html: markup }} />;
