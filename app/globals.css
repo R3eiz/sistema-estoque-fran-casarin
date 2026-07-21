@@ -604,4 +604,4 @@
     .auth-panel{padding:22px;}
     .save-toast{bottom:22px;}
   }
-
+.tabletools{display:flex;align-items:center;gap:10px;margin:2px 0 12px;flex-wrap:wrap}.tabletools input{max-width:360px;margin:0}.tabletools .hint{margin:0}
