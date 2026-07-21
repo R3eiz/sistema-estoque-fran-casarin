@@ -2,7 +2,9 @@
 const CATEGORIAS_PADRAO = ["Peixes e Frutos do Mar","Grãos e Cereais","Hortifruti","Carnes","Laticínios","Outros"];
 // Categorias agora são cadastráveis (aba Categorias) — esta função sempre lê a lista atual de db.categorias,
 // então uma categoria nova cadastrada aparece automaticamente nos formulários de Produtos Brutos, Fracionados e Importar NF.
-function categoriaOptions(){ return db.categorias.map(c=>c.nome); }
+function compareText(a,b){ return String(a||'').localeCompare(String(b||''), 'pt-BR', {sensitivity:'base'}); }
+function nomesOrdenados(items){ return (items||[]).map(x=>typeof x==='string'?x:x.nome).filter(Boolean).sort(compareText); }
+function categoriaOptions(){ return nomesOrdenados(db.categorias); }
 const UNIDADES = ["KG","G","L","ML","UN","CX","PCT"];
 const TIPOS_LOCAL = ["Central","Consumidor","Fracionamento"];
 // Estas listas NÃO são mais fixas: elas são recalculadas a partir da aba "Locais" a cada uso,
@@ -10,8 +12,8 @@ const TIPOS_LOCAL = ["Central","Consumidor","Fracionamento"];
 // estoque atual e dashboard, sem precisar editar código nenhum.
 function getCentralNome(){ const l = db.locais.find(x=>x.tipo==='Central'); return l ? l.nome : 'Central de Distribuição'; }
 function getCozinhaNome(){ const l = db.locais.find(x=>x.tipo==='Fracionamento'); return l ? l.nome : 'Cozinha de Produção de Fracionados'; }
-function destinosCentralOptions(){ return db.locais.filter(l=>l.tipo!=='Central').map(l=>l.nome); }
-function destinosFracionadoOptions(){ return db.locais.filter(l=>l.tipo==='Consumidor').map(l=>l.nome); }
+function destinosCentralOptions(){ return nomesOrdenados(db.locais.filter(l=>l.tipo!=='Central')); }
+function destinosFracionadoOptions(){ return nomesOrdenados(db.locais.filter(l=>l.tipo==='Consumidor')); }
 const STORAGE_KEY = "estoqueFranCasarinDB_v1";
 
 function accessProfile(){ return (window.__estoqueAccess && window.__estoqueAccess.profile) || {papel:'visualizador', email:''}; }
@@ -168,8 +170,9 @@ function daysBetween(dateStr){
 function saldoCentral(produto){
   const entradas = sumWhere(db.entradasCentral,'produto',produto,'quantidade');
   const saidas = sumWhere(db.saidasCentral,'produto',produto,'quantidade');
+  const consumoDireto = db.producoes.filter(p=>p.origemEstoque==='central').reduce((a,p)=>p.produtoBruto===produto ? a+Number(p.quantidadeUtilizada||0):a,0);
   const ajustes = sumWhere(db.ajustesEstoque,'produto',produto,'diferenca');
-  return entradas - saidas + ajustes;
+  return entradas - saidas - consumoDireto + ajustes;
 }
 function saldoCozinhaBruto(produto){
   const recebido = db.saidasCentral.filter(s=>s.destino===getCozinhaNome()).reduce((a,r)=> r.produto===produto ? a+Number(r.quantidade||0):a,0);
@@ -280,7 +283,7 @@ function render(){
   updateSidebarBadges();
   const c = document.getElementById('content');
   const renderers = {
-    dashboard: renderDashboard, estoque: renderEstoque, compras: renderCompras, alertas: renderAlertas,
+    dashboard: renderDashboard, estoqueCentral: renderEstoqueCentral, estoqueFracionados: renderEstoqueFracionados, compras: renderCompras, alertas: renderAlertas,
     relatorios: renderRelatorios, backup: renderBackup, importarNF: renderImportarNF, importarXML: renderImportarXML,
     conferenciaPedidos: renderConferenciaPedidos, seguranca: renderSeguranca,
     usuarios: renderUsuarios,
@@ -308,7 +311,7 @@ function updateSidebarBadges(){
 
 /* ============================= DEFINIÇÕES DE MÓDULO (CRUD) ============================= */
 const defBrutos = {
-  key:'brutos', title:'Produtos Brutos', subtitle:'Cadastro-mestre de insumos comprados da Central de Distribuição.',
+  key:'brutos', title:'Produtos Brutos', subtitle:'Cadastro-mestre de insumos comprados da Central de Distribuição.', searchableTable:true, sortRows:r=>r.nome,
   fields:[
     {name:'nome', label:'Nome do Produto', type:'text', required:true},
     {name:'categoria', label:'Categoria', type:'select', options:categoriaOptions},
@@ -336,12 +339,12 @@ const defBrutos = {
 };
 
 const defFracionados = {
-  key:'fracionados', title:'Produtos Fracionados', subtitle:'Cadastro-mestre dos itens gerados na Cozinha de Produção de Fracionados.',
+  key:'fracionados', title:'Produtos Fracionados', subtitle:'Cadastro-mestre dos itens gerados na Cozinha de Produção de Fracionados.', searchableTable:true, sortRows:r=>r.nome,
   fields:[
     {name:'nome', label:'Nome do Produto Fracionado', type:'text', required:true},
     {name:'categoria', label:'Categoria', type:'select', options:categoriaOptions},
     {name:'unidade', label:'Unidade', type:'select', options:()=>UNIDADES},
-    {name:'origem', label:'Produto Bruto de Origem', type:'select', options:()=>db.brutos.map(b=>b.nome)},
+    {name:'origem', label:'Produto Bruto de Origem', type:'select', options:()=>nomesOrdenados(db.brutos), searchable:true},
     {name:'rendimento', label:'Rendimento Padrão (%)', type:'number', step:'1'},
     {name:'estoqueMinimo', label:'Estoque Mínimo', type:'number', step:'0.01'},
     {name:'validadeDias', label:'Validade Após Fracionar (dias)', type:'number'},
@@ -406,7 +409,7 @@ const defEntradasCentral = {
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
     {name:'nf', label:'Nº NF / Documento', type:'text'},
-    {name:'produto', label:'Produto', type:'select', options:()=>db.brutos.map(b=>b.nome)},
+    {name:'produto', label:'Produto', type:'select', options:()=>nomesOrdenados(db.brutos), searchable:true},
     {name:'fornecedor', label:'Fornecedor', type:'text'},
     {name:'quantidade', label:'Quantidade', type:'number', step:'0.01'},
     {name:'precoUnitario', label:'Preço Unitário (R$)', type:'number', step:'0.01'},
@@ -469,7 +472,7 @@ const defSaidasCentral = {
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
     {name:'documento', label:'Nº Documento', type:'text'},
-    {name:'produto', label:'Produto', type:'select', options:()=>db.brutos.map(b=>b.nome)},
+    {name:'produto', label:'Produto', type:'select', options:()=>nomesOrdenados(db.brutos), searchable:true},
     {name:'destino', label:'Local de Destino', type:'select', options:destinosCentralOptions},
     {name:'quantidade', label:'Quantidade', type:'number', step:'0.01'},
   ],
@@ -508,13 +511,14 @@ const defSaidasCentral = {
 };
 
 const defProducoes = {
-  key:'producoes', title:'Produção de Fracionados', subtitle:'Consumo de bruto na Cozinha de Fracionamento e geração do produto fracionado.', groupByDate:true,
+  key:'producoes', title:'Entrada de Fracionados', subtitle:'Selecione o fracionado: o bruto de origem e o saldo disponível são preenchidos automaticamente. O consumo é baixado direto da Central.', groupByDate:true,
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
-    {name:'produtoBruto', label:'Produto Bruto Utilizado', type:'select', options:()=>db.brutos.map(b=>b.nome)},
-    {name:'quantidadeUtilizada', label:'Quantidade Utilizada', type:'number', step:'0.01'},
-    {name:'produtoFracionado', label:'Produto Fracionado Gerado', type:'select', options:()=>db.fracionados.map(f=>f.nome)},
-    {name:'quantidadeProduzida', label:'Quantidade Produzida (Rendimento)', type:'number', step:'0.01'},
+    {name:'produtoFracionado', label:'Produto Fracionado', type:'select', options:()=>nomesOrdenados(db.fracionados), searchable:true},
+    {name:'produtoBruto', label:'Produto Bruto de Origem', type:'select', options:()=>nomesOrdenados(db.brutos), searchable:true},
+    {name:'quantidadeUtilizada', label:'Quantidade Utilizada do Bruto', type:'number', step:'0.01'},
+    {name:'quantidadeProduzida', label:'Rendimento (quantidade produzida)', type:'number', step:'0.01'},
+    {name:'unidadeProduzida', label:'Unidade do Produzido', type:'select', options:()=>UNIDADES},
   ],
   columns:[
     {label:'Data', render:r=>fmtDate(r.data)},
@@ -522,6 +526,7 @@ const defProducoes = {
     {label:'Qtd. Utilizada', render:r=>fmtNum(r.quantidadeUtilizada)},
     {label:'Fracionado Gerado', render:r=>`<strong>${r.produtoFracionado}</strong>`},
     {label:'Qtd. Produzida', render:r=>fmtNum(r.quantidadeProduzida)},
+    {label:'Unidade', render:r=>r.unidadeProduzida || (db.fracionados.find(x=>x.nome===r.produtoFracionado)||{}).unidade || '—'},
     {label:'Validade do Fracionado', render:r=>{
       const f = db.fracionados.find(x=>x.nome===r.produtoFracionado);
       if(!f || !r.data) return "—";
@@ -530,29 +535,34 @@ const defProducoes = {
     }},
   ],
   helper:(form)=>{
-    const prodSel = form.querySelector('[name=produtoBruto]');
+    const prodSel = form.querySelector('[name=produtoFracionado]');
+    const brutoSel = form.querySelector('[name=produtoBruto]'); brutoSel.disabled=true;
     const qtdInput = form.querySelector('[name=quantidadeUtilizada]');
     const hint = document.createElement('div'); hint.className='hint'; hint.id='saldoHintProd';
     qtdInput.closest('.field').appendChild(hint);
     function update(){
-      if(!prodSel.value){ hint.textContent=''; return; }
-      const s = saldoCozinhaBruto(prodSel.value);
-      hint.textContent = `Disponível na Cozinha: ${fmtNum(s)}`;
+      const f=db.fracionados.find(x=>x.nome===prodSel.value);
+      if(!f){hint.textContent='';brutoSel.value='';return;}
+      brutoSel.value=f.origem||'';
+      const s = saldoCentral(f.origem);
+      hint.textContent = `Disponível na ${getCentralNome()}: ${fmtNum(s)} (${f.origem})`;
       hint.className = 'hint' + (Number(qtdInput.value||0) > s ? ' warn' : '');
     }
     prodSel.addEventListener('change', update); qtdInput.addEventListener('input', update); update();
   },
   validate:(row, editIdx)=>{
-    if(!row.produtoBruto) return "Selecione o produto bruto utilizado.";
-    if(!row.produtoFracionado) return "Selecione o produto fracionado gerado.";
+    if(!row.produtoFracionado) return "Selecione o produto fracionado.";
+    const f=db.fracionados.find(x=>x.nome===row.produtoFracionado); if(!f) return "Produto fracionado inválido.";
+    row.produtoBruto=f.origem; row.origemEstoque=editIdx!=null?(db.producoes[editIdx].origemEstoque||'cozinha'):'central';
     if(!row.quantidadeUtilizada || row.quantidadeUtilizada<=0) return "Informe a quantidade utilizada.";
     if(!row.quantidadeProduzida || row.quantidadeProduzida<=0) return "Informe a quantidade produzida.";
-    let s = saldoCozinhaBruto(row.produtoBruto);
+    if(!row.unidadeProduzida) row.unidadeProduzida = f.unidade;
+    let s = saldoCentral(row.produtoBruto);
     if(editIdx!=null){
       const old = db.producoes[editIdx];
       if(old && old.produtoBruto===row.produtoBruto) s += Number(old.quantidadeUtilizada||0);
     }
-    if(row.quantidadeUtilizada > s) return `Bruto insuficiente na Cozinha de Fracionamento. Disponível: ${fmtNum(s)}.`;
+    if(row.quantidadeUtilizada > s) return `Bruto insuficiente na ${getCentralNome()}. Disponível: ${fmtNum(s)}.`;
     return null;
   }
 };
@@ -562,7 +572,7 @@ const defSaidasFracionado = {
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
     {name:'documento', label:'Nº Documento', type:'text'},
-    {name:'produto', label:'Produto Fracionado', type:'select', options:()=>db.fracionados.map(f=>f.nome)},
+    {name:'produto', label:'Produto Fracionado', type:'select', options:()=>nomesOrdenados(db.fracionados), searchable:true},
     {name:'destino', label:'Local de Destino', type:'select', options:destinosFracionadoOptions},
     {name:'quantidade', label:'Quantidade', type:'number', step:'0.01'},
   ],
@@ -605,7 +615,7 @@ const defAjustesEstoque = {
   subtitle:'Corrija o saldo de um produto após uma contagem física. Todo ajuste precisa de motivo e responsável.',
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
-    {name:'produto', label:'Produto', type:'select', options:()=>db.brutos.map(b=>b.nome)},
+    {name:'produto', label:'Produto', type:'select', options:()=>nomesOrdenados(db.brutos), searchable:true},
     {name:'novoSaldo', label:'Novo Saldo (contagem física)', type:'number', step:'0.01'},
     {name:'motivo', label:'Motivo do Ajuste', type:'text'},
     {name:'responsavel', label:'Responsável pelo Ajuste', type:'text'},
@@ -659,6 +669,7 @@ const defAjustesEstoque = {
 
 /* ============================= RENDER GENÉRICO CRUD ============================= */
 let crudEdit = null; // {key, idx} — controla o modo de edição de um registro já lançado
+let crudSearch = {};
 
 function renderCrud(def){
   const c = document.getElementById('content');
@@ -676,6 +687,7 @@ function renderCrud(def){
     </div>
     <div class="card">
       <h2>Registros (${db[def.key].length})</h2>
+      ${def.searchableTable ? `<div class="tabletools"><input id="search-${def.key}" type="search" placeholder="Buscar por nome, categoria ou fornecedor…" autocomplete="off"><span class="hint">Produtos em ordem alfabética.</span></div>` : ''}
       <div id="table-${def.key}"></div>
     </div>
   `;
@@ -695,9 +707,18 @@ function renderCrud(def){
     const label = document.createElement('label'); label.textContent = f.label; fieldDiv.appendChild(label);
     let input;
     if(f.type==='select'){
-      input = document.createElement('select'); input.name = f.name;
+      const options = [...(f.options()||[])].sort(compareText);
+      if(f.searchable){
+        const listId = `options-${def.key}-${f.name}`;
+        input = document.createElement('input'); input.name=f.name; input.setAttribute('list',listId); input.autocomplete='off'; input.placeholder='Digite para buscar…';
+        const list=document.createElement('datalist'); list.id=listId; options.forEach(opt=>{const o=document.createElement('option');o.value=opt;list.appendChild(o);});
+        fieldDiv.appendChild(input); fieldDiv.appendChild(list);
+      } else {
+        input = document.createElement('select'); input.name = f.name;
       const optBlank = document.createElement('option'); optBlank.value=''; optBlank.textContent='Selecione...'; input.appendChild(optBlank);
-      (f.options()||[]).forEach(opt=>{ const o=document.createElement('option'); o.value=opt; o.textContent=opt; input.appendChild(o); });
+        options.forEach(opt=>{ const o=document.createElement('option'); o.value=opt; o.textContent=opt; input.appendChild(o); });
+        fieldDiv.appendChild(input);
+      }
       if(editingRow) input.value = editingRow[f.name]!=null ? editingRow[f.name] : '';
     } else {
       input = document.createElement('input'); input.type = f.type; input.name = f.name;
@@ -705,7 +726,7 @@ function renderCrud(def){
       if(editingRow) input.value = editingRow[f.name]!=null ? editingRow[f.name] : '';
       else if(f.default) input.value = f.default();
     }
-    fieldDiv.appendChild(input);
+    if(f.type!=='select') fieldDiv.appendChild(input);
     form.appendChild(fieldDiv);
   });
   const btnField = document.createElement('div'); btnField.className='field';
@@ -746,17 +767,23 @@ function renderCrud(def){
   });
 
   renderTable(def, wrap.querySelector(`#table-${def.key}`));
+  if(def.searchableTable){ const search=wrap.querySelector(`#search-${def.key}`); search.value=crudSearch[def.key]||''; search.addEventListener('input',()=>{crudSearch[def.key]=search.value;renderTable(def,wrap.querySelector(`#table-${def.key}`));}); }
 }
 
 function renderTable(def, container){
   const rows = db[def.key];
   if(rows.length===0){ container.innerHTML = `<div class="empty">Nenhum registro lançado ainda.</div>`; return; }
   if(def.groupByDate){ renderTableGrouped(def, container, rows); return; }
+  const query=String(crudSearch[def.key]||'').trim().toLocaleLowerCase('pt-BR');
+  let indexedRows=rows.map((r,idx)=>({r,idx}));
+  if(query) indexedRows=indexedRows.filter(({r})=>JSON.stringify(r).toLocaleLowerCase('pt-BR').includes(query));
+  if(def.sortRows) indexedRows.sort((a,b)=>compareText(def.sortRows(a.r),def.sortRows(b.r)));
+  if(indexedRows.length===0){ container.innerHTML=`<div class="empty">Nenhum registro encontrado para esta busca.</div>`; return; }
   let html = `<table><thead><tr>`;
   def.columns.forEach(c=> html += `<th>${c.label}</th>`);
   if(canEditSystem()) html += `<th></th>`;
   html += `</tr></thead><tbody>`;
-  rows.forEach((r, idx)=>{
+  indexedRows.forEach(({r, idx})=>{
     html += `<tr>`;
     def.columns.forEach(c=> html += `<td>${c.render(r)}</td>`);
     if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${idx}" title="Excluir">✕</button></td>`;
@@ -854,20 +881,26 @@ function renderTableGrouped(def, container, rows){
 
 /* ============================= ESTOQUE ATUAL ============================= */
 function renderEstoque(){
+  renderEstoqueCentral();
+}
+function renderEstoqueCentral(){
   const c = document.getElementById('content');
-  let html = `<h1 class="pagetitle">Estoque Atual</h1><p class="pagesub">Saldo consolidado de produtos brutos e fracionados, calculado automaticamente.</p>`;
-
+  let html = `<h1 class="pagetitle">Estoque Central</h1><p class="pagesub">Saldo dos produtos brutos na Central de Distribuição, calculado automaticamente.</p>`;
   html += `<div class="card"><h2>Produtos Brutos — Saldo na ${getCentralNome()}</h2><table><thead><tr>
     <th>Produto</th><th>Unidade</th><th>Saldo Atual</th><th>Estoque Mínimo</th><th>Status</th></tr></thead><tbody>`;
-  db.brutos.forEach(b=>{
+  [...db.brutos].sort((a,b)=>compareText(a.nome,b.nome)).forEach(b=>{
     const s = saldoCentral(b.nome);
     html += `<tr><td><strong>${b.nome}</strong></td><td>${b.unidade}</td><td>${fmtNum(s)}</td><td>${fmtNum(b.estoqueMinimo)}</td><td>${statusBadge(s,b.estoqueMinimo)}</td></tr>`;
   });
   html += `</tbody></table></div>`;
-
+  c.innerHTML = html;
+}
+function renderEstoqueFracionados(){
+  const c = document.getElementById('content');
+  let html = `<h1 class="pagetitle">Estoque Fracionados</h1><p class="pagesub">Saldo dos produtos preparados e fracionados, calculado automaticamente.</p>`;
   html += `<div class="card"><h2>Produtos Fracionados — Saldo na ${getCozinhaNome()}</h2><table><thead><tr>
     <th>Produto</th><th>Unidade</th><th>Saldo Atual</th><th>Estoque Mínimo</th><th>Status</th></tr></thead><tbody>`;
-  db.fracionados.forEach(f=>{
+  [...db.fracionados].sort((a,b)=>compareText(a.nome,b.nome)).forEach(f=>{
     const s = saldoCozinhaFracionado(f.nome);
     html += `<tr><td><strong>${f.nome}</strong></td><td>${f.unidade}</td><td>${fmtNum(s)}</td><td>${fmtNum(f.estoqueMinimo)}</td><td>${statusBadge(s,f.estoqueMinimo)}</td></tr>`;
   });
@@ -913,7 +946,7 @@ function getProducaoSugerida(){
   return db.fracionados.map(f=>{
     const saldo = saldoCozinhaFracionado(f.nome);
     const sugestao = Math.max(0, (f.estoqueMinimo||0) - saldo);
-    const brutoDisp = saldoCozinhaBruto(f.origem);
+    const brutoDisp = saldoCentral(f.origem);
     const brutoNecessario = f.rendimento>0 ? sugestao/(f.rendimento/100) : 0;
     return {produto:f.nome, origem:f.origem, saldo, minimo:f.estoqueMinimo||0, sugestao, brutoDisp, brutoNecessario,
       abaixo: saldo<(f.estoqueMinimo||0), brutoSuficiente: brutoDisp>=brutoNecessario};
@@ -1171,9 +1204,9 @@ function concluirProducao(produtoFracionado){
   const sugestao = Math.max(0, (f.estoqueMinimo||0) - saldo);
   if(sugestao<=0){ alert('Este item já está acima do estoque mínimo — nada a concluir.'); render(); return; }
   const brutoNecessario = f.rendimento>0 ? sugestao/(f.rendimento/100) : 0;
-  const brutoDisp = saldoCozinhaBruto(f.origem);
+  const brutoDisp = saldoCentral(f.origem);
   if(brutoNecessario > brutoDisp){
-    alert(`Bruto insuficiente na Cozinha para produzir. Necessário: ${fmtNum(brutoNecessario)}, disponível: ${fmtNum(brutoDisp)}.`);
+    alert(`Bruto insuficiente na ${getCentralNome()} para produzir. Necessário: ${fmtNum(brutoNecessario)}, disponível: ${fmtNum(brutoDisp)}.`);
     return;
   }
   if(!confirm(`Confirmar produção de ${fmtNum(sugestao)} ${f.unidade} de "${produtoFracionado}", consumindo ${fmtNum(brutoNecessario)} de "${f.origem}"?`)) return;
@@ -1182,7 +1215,9 @@ function concluirProducao(produtoFracionado){
     produtoBruto: f.origem,
     quantidadeUtilizada: brutoNecessario,
     produtoFracionado,
-    quantidadeProduzida: sugestao
+    quantidadeProduzida: sugestao,
+    unidadeProduzida: f.unidade,
+    origemEstoque: 'central'
   });
   saveDB();
   render();
