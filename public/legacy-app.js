@@ -2302,7 +2302,7 @@ function renderImportarNF(){
           <td class="nfTotalCell" data-i="${i}">${fmtMoney(item.quantidade*item.valorUnitario)}</td>
           <td>
             <select class="nfProduto" data-i="${i}">
-              ${db.brutos.map(b=>`<option value="${escapeHtml(b.nome)}" ${item.matchProdutoNome===b.nome && !item.novoProduto?'selected':''}>${escapeHtml(b.nome)}</option>`).join('')}
+              ${nomesOrdenados(db.brutos).map(nome=>`<option value="${escapeHtml(nome)}" ${item.matchProdutoNome===nome && !item.novoProduto?'selected':''}>${escapeHtml(nome)}</option>`).join('')}
               <option value="__novo__" ${item.novoProduto?'selected':''}>+ Cadastrar como novo produto</option>
             </select>
           </td>
