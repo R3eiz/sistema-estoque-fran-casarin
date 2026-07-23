@@ -2478,8 +2478,42 @@ function updateXMLRowTotal(i){
   const cell = document.querySelector(`.xmlTotalCell[data-i="${i}"]`);
   if(cell) cell.textContent = fmtMoney(xmlImport.itens[i].quantidade * xmlImport.itens[i].valorUnitario);
 }
+function notaFiscalKey(nf){
+  const raw = String(nf||'').trim();
+  const digits = raw.replace(/\D/g,'').replace(/^0+/,'');
+  return digits || normalizeName(raw);
+}
+function findNotaJaLancada(header){
+  const key = notaFiscalKey(header && header.nf);
+  if(!key) return null;
+  const fornecedorKey = normalizeName(header && header.fornecedor);
+  const rows = (db.entradasCentral||[]).filter(e=>{
+    if(notaFiscalKey(e.nf) !== key) return false;
+    const entradaFornecedor = normalizeName(e.fornecedor);
+    return fornecedorKey && entradaFornecedor ? entradaFornecedor === fornecedorKey : true;
+  });
+  if(rows.length===0) return null;
+  const ordenadas = [...rows].sort((a,b)=>String(a.data||'').localeCompare(String(b.data||'')));
+  const first = ordenadas[0];
+  const produtos = [...new Set(rows.map(r=>r.produto).filter(Boolean))].slice(0,4);
+  return {
+    nf: first.nf || (header && header.nf) || '',
+    fornecedor: first.fornecedor || (header && header.fornecedor) || '',
+    data: first.data || '',
+    itens: rows.length,
+    produtos,
+  };
+}
+function avisoNotaDuplicadaHtml(duplicada){
+  if(!duplicada) return '';
+  const produtos = duplicada.produtos.length ? ` Produtos encontrados: ${duplicada.produtos.map(escapeHtml).join(', ')}${duplicada.itens>duplicada.produtos.length?'...':''}` : '';
+  return `<div class="msg-ok" style="margin:0 0 18px;background:var(--amber-bg);color:var(--amber);border-color:rgba(138,94,0,.22)">
+    Nota fiscal já importada e concluída no sistema. NF <strong>${escapeHtml(duplicada.nf||'sem número')}</strong>${duplicada.fornecedor ? ` de <strong>${escapeHtml(duplicada.fornecedor)}</strong>` : ''} já consta na Entrada da Central${duplicada.data ? ` em <strong>${fmtDate(duplicada.data)}</strong>` : ''}. Esta importação foi bloqueada para evitar duplicidade.${produtos}
+  </div>`;
+}
 function renderImportarXML(){
   const c = document.getElementById('content');
+  const notaDuplicada = xmlImport ? findNotaJaLancada(xmlImport.header) : null;
   let html = `<h1 class="pagetitle">Importar Nota Fiscal (XML) <span class="beta-note">BETA EM TESTES</span></h1>
     <p class="pagesub">Envie o XML da NF-e para testar a leitura automática de itens, quantidade e preço de custo. A parte financeira/fiscal completa ainda não entra neste fluxo.</p>`;
 
@@ -2499,6 +2533,7 @@ function renderImportarXML(){
         <div class="field"><label>Data de Emissão</label><input type="date" id="xmlData" value="${xmlImport.header.data||''}"></div>
       </div>
     </div>`;
+    html += avisoNotaDuplicadaHtml(notaDuplicada);
 
     html += `<div class="card"><h2>3. Itens Encontrados (${xmlImport.itens.length})</h2>`;
     if(xmlImport.itens.length===0){
@@ -2531,7 +2566,7 @@ function renderImportarXML(){
         }
       });
       html += `</tbody></table>`;
-      html += `<div style="margin-top:16px"><button class="btn" id="btnConfirmarXML">Confirmar e Lançar no Estoque</button></div>`;
+      html += `<div style="margin-top:16px"><button class="btn" id="btnConfirmarXML" ${notaDuplicada?'disabled title="Nota já importada"':''}>Confirmar e Lançar no Estoque</button></div>`;
     }
     html += `</div>`;
 
@@ -2546,8 +2581,8 @@ function renderImportarXML(){
   if(inputXML) inputXML.addEventListener('change', (e)=>{ const f=e.target.files[0]; if(f) handleXMLFile(f); });
   if(!xmlImport) return;
 
-  c.querySelector('#xmlFornecedor')?.addEventListener('input', e=> xmlImport.header.fornecedor = e.target.value);
-  c.querySelector('#xmlNumero')?.addEventListener('input', e=> xmlImport.header.nf = e.target.value);
+  c.querySelector('#xmlFornecedor')?.addEventListener('change', e=>{ xmlImport.header.fornecedor = e.target.value; render(); });
+  c.querySelector('#xmlNumero')?.addEventListener('change', e=>{ xmlImport.header.nf = e.target.value; render(); });
   c.querySelector('#xmlData')?.addEventListener('input', e=> xmlImport.header.data = e.target.value);
   c.querySelector('#btnToggleXMLRaw')?.addEventListener('click', ()=>{
     const pre = c.querySelector('#xmlRawText'); pre.style.display = pre.style.display==='none' ? 'block' : 'none';
@@ -2571,6 +2606,12 @@ function renderImportarXML(){
     if(!ensureCanEdit()) return;
     const header = xmlImport.header;
     if(!header.data){ alert('Informe a data de emissão da nota.'); return; }
+    const duplicada = findNotaJaLancada(header);
+    if(duplicada){
+      alert(`Importação bloqueada: a NF ${duplicada.nf || header.nf} já foi importada e concluída no sistema${duplicada.data ? ` em ${fmtDate(duplicada.data)}` : ''}.`);
+      render();
+      return;
+    }
     let count = 0;
     xmlImport.itens.forEach(item=>{
       if(!item.incluir) return;
