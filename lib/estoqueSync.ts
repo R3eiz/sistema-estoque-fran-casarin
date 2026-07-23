@@ -17,7 +17,7 @@ type LegacyDB = {
   pedidosFeitos: Record<string, any>;
 };
 
-type PapelSistema = "master" | "administrador" | "visualizador";
+type PapelSistema = "master" | "administrador" | "controle_fracionados" | "visualizador";
 type PapelLegado = PapelSistema | "admin" | "estoque" | "consulta";
 
 export type PerfilSistema = {
@@ -196,7 +196,7 @@ export async function listPerfis(supabase: SupabaseClient): Promise<PerfilSistem
 
 export async function createPerfilUser(
   supabase: SupabaseClient,
-  input: { email: string; senha: string; nome?: string; papel: "administrador" | "visualizador" },
+  input: { email: string; senha: string; nome?: string; papel: "administrador" | "controle_fracionados" | "visualizador" },
 ) {
   const { data, error } = await supabase.rpc("criar_usuario_sistema", {
     p_email: input.email,
@@ -222,7 +222,7 @@ export async function createPerfilUser(
 
 export async function updatePerfilUser(
   supabase: SupabaseClient,
-  input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean },
+  input: { user_id: string; nome?: string; papel: "administrador" | "controle_fracionados" | "visualizador"; ativo: boolean },
 ) {
   const { error } = await supabase.rpc("atualizar_acesso_sistema", {
     p_user_id: input.user_id,

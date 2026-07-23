@@ -16,15 +16,50 @@ function destinosCentralOptions(){ return nomesOrdenados(db.locais.filter(l=>l.t
 function destinosFracionadoOptions(){ return nomesOrdenados(db.locais.filter(l=>l.tipo==='Consumidor')); }
 const STORAGE_KEY = "estoqueFranCasarinDB_v1";
 
-function accessProfile(){ return (window.__estoqueAccess && window.__estoqueAccess.profile) || {papel:'visualizador', email:''}; }
-function canEditSystem(){ return !!(window.__estoqueAccess && window.__estoqueAccess.canEdit); }
-function canManageUsers(){ return !!(window.__estoqueAccess && window.__estoqueAccess.canManageUsers); }
+const FRACIONADOS_TABS = new Set(['estoque','producoes','saidasFracionado']);
+const FRACIONADOS_EDIT_TABS = new Set(['producoes','saidasFracionado']);
+const PERFIS_SIMULAVEIS = new Set(['master','administrador','controle_fracionados','visualizador']);
+function previewSimulationAllowed(){
+  const host = window.location.hostname;
+  return host==='localhost' || host==='127.0.0.1' || host.endsWith('.github.io');
+}
+function previewSimulationRole(){
+  try{
+    if(!previewSimulationAllowed()) return '';
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('perfil') || params.get('papel_teste') || '';
+    if(fromUrl && PERFIS_SIMULAVEIS.has(fromUrl)) return fromUrl;
+    const fromStorage = localStorage.getItem('estoqueSimularPapel') || '';
+    return PERFIS_SIMULAVEIS.has(fromStorage) ? fromStorage : '';
+  }catch(e){ return ''; }
+}
+function accessProfile(){
+  const profile = (window.__estoqueAccess && window.__estoqueAccess.profile) || {papel:'visualizador', email:''};
+  const simulated = previewSimulationRole();
+  return simulated ? {...profile, papel:simulated, email:profile.email||'simulado@local'} : profile;
+}
+function profileIsActive(){ return !(window.__estoqueAccess && window.__estoqueAccess.profile && window.__estoqueAccess.profile.ativo===false); }
+function isFracionadosAccess(){ return accessProfile().papel === 'controle_fracionados'; }
+function canEditSystem(){
+  const papel = accessProfile().papel;
+  return profileIsActive() && (papel==='master' || papel==='administrador');
+}
+function canManageUsers(){ return profileIsActive() && accessProfile().papel === 'master'; }
+function canViewTab(tab){
+  if(tab==='usuarios') return canManageUsers();
+  if(isFracionadosAccess()) return FRACIONADOS_TABS.has(tab);
+  return true;
+}
+function canEditTab(tab){
+  if(canEditSystem()) return true;
+  return profileIsActive() && isFracionadosAccess() && FRACIONADOS_EDIT_TABS.has(tab);
+}
 function roleLabel(papel){
-  return papel==='master' ? 'Master' : papel==='administrador' ? 'Administrador' : 'Visualizador';
+  return papel==='master' ? 'Master' : papel==='administrador' ? 'Administrador' : papel==='controle_fracionados' ? 'Controle de Fracionados' : 'Visualizador';
 }
 function ensureCanEdit(){
-  if(canEditSystem()) return true;
-  alert('Seu acesso é Visualizador. Você pode consultar o sistema, mas não pode alterar dados.');
+  if(canEditTab(currentTab)) return true;
+  alert('Seu acesso permite consulta nesta tela, mas não permite alterar estes dados.');
   return false;
 }
 
@@ -111,7 +146,7 @@ function normalizeDB(data){
 }
 let storageAvailable = true;
 function saveDB(){
-  if(!canEditSystem()){
+  if(!canEditTab(currentTab)){
     db = loadDB();
     render();
     return false;
@@ -133,6 +168,15 @@ window.__estoqueLegacy = {
     render();
   },
   render(){ render(); }
+};
+window.__simularPapelEstoque = function(papel){
+  if(!previewSimulationAllowed()) return false;
+  try{
+    if(papel && PERFIS_SIMULAVEIS.has(papel)) localStorage.setItem('estoqueSimularPapel', papel);
+    else localStorage.removeItem('estoqueSimularPapel');
+    window.location.reload();
+    return true;
+  }catch(e){ return false; }
 };
 function showStorageWarning(){
   const w = document.createElement('div');
@@ -263,8 +307,18 @@ function expandGroupFor(tab){
 }
 
 function setActiveNav(){
-  expandGroupFor(currentTab);
   document.querySelectorAll('.master-only').forEach(el=>{ el.style.display = canManageUsers() ? '' : 'none'; });
+  document.querySelectorAll('.navitem[data-tab]').forEach(el=>{
+    el.style.display = canViewTab(el.dataset.tab) ? '' : 'none';
+  });
+  document.querySelectorAll('.navgroup-label').forEach(label=>{
+    const group = label.dataset.group;
+    const items = document.querySelector(`[data-group-items="${group}"]`);
+    const hasVisibleItem = !!(items && Array.from(items.querySelectorAll('.navitem[data-tab]')).some(item=>item.style.display !== 'none'));
+    label.style.display = hasVisibleItem ? '' : 'none';
+    if(items) items.style.display = hasVisibleItem ? '' : 'none';
+  });
+  expandGroupFor(currentTab);
   const resetBtn = document.getElementById('resetBtn');
   if(resetBtn) resetBtn.style.display = canEditSystem() ? '' : 'none';
   const logoutEmail = document.getElementById('logoutEmail');
@@ -277,7 +331,7 @@ function setActiveNav(){
 
 /* ============================= RENDER ROOT ============================= */
 function render(){
-  if(currentTab==='usuarios' && !canManageUsers()) currentTab = 'dashboard';
+  if(!canViewTab(currentTab)) currentTab = isFracionadosAccess() ? 'producoes' : 'dashboard';
   document.getElementById('todayLabel').textContent = "Hoje: " + fmtDate(todayStr());
   setActiveNav();
   updateSidebarBadges();
@@ -673,13 +727,14 @@ let crudSearch = {};
 
 function renderCrud(def){
   const c = document.getElementById('content');
-  const editable = canEditSystem();
+  const editable = canEditTab(def.key);
   const editing = (crudEdit && crudEdit.key===def.key) ? crudEdit.idx : null;
   const editingRow = editing!=null ? db[def.key][editing] : null;
   const wrap = document.createElement('div');
   wrap.innerHTML = `
     <h1 class="pagetitle">${def.title}</h1>
     <p class="pagesub">${def.subtitle}</p>
+    ${isFracionadosAccess() ? '<div class="msg-ok" style="margin-bottom:18px">Acesso Controle de Fracionados: este perfil opera apenas produções e saídas de fracionados, respeitando o saldo disponível no estoque.</div>' : ''}
     <div class="card">
       <h2>${editing!=null ? 'Editando Registro' : 'Novo Lançamento'}</h2>
       ${editing!=null ? '<p class="hint warn">Você está corrigindo um registro já lançado. Ajuste os campos e clique em Salvar Alterações.</p>' : ''}
@@ -781,12 +836,12 @@ function renderTable(def, container){
   if(indexedRows.length===0){ container.innerHTML=`<div class="empty">Nenhum registro encontrado para esta busca.</div>`; return; }
   let html = `<table><thead><tr>`;
   def.columns.forEach(c=> html += `<th>${c.label}</th>`);
-  if(canEditSystem()) html += `<th></th>`;
+  if(canEditTab(def.key)) html += `<th></th>`;
   html += `</tr></thead><tbody>`;
   indexedRows.forEach(({r, idx})=>{
     html += `<tr>`;
     def.columns.forEach(c=> html += `<td>${c.render(r)}</td>`);
-    if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${idx}" title="Excluir">✕</button></td>`;
+    if(canEditTab(def.key)) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${idx}" title="Editar">✎</button> <button class="delbtn" data-idx="${idx}" title="Excluir">✕</button></td>`;
     html += `</tr>`;
   });
   html += `</tbody></table>`;
@@ -852,12 +907,12 @@ function renderTableGrouped(def, container, rows){
     html += `<h3 class="daygroup-title">${dataKey==='Sem data' ? 'Sem data' : fmtDate(dataKey)}</h3>`;
     html += `<table><thead><tr>`;
     def.columns.forEach(c=> html += `<th>${c.label}</th>`);
-    if(canEditSystem()) html += `<th></th>`;
+    if(canEditTab(def.key)) html += `<th></th>`;
     html += `</tr></thead><tbody>`;
     groups[dataKey].forEach(x=>{
       html += `<tr>`;
       def.columns.forEach(c=> html += `<td>${c.render(x.r)}</td>`);
-      if(canEditSystem()) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar" aria-label="Editar">✎</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir" aria-label="Excluir">✕</button></td>`;
+      if(canEditTab(def.key)) html += `<td style="white-space:nowrap"><button class="editbtn" data-idx="${x.idx}" title="Editar" aria-label="Editar">✎</button> <button class="delbtn" data-idx="${x.idx}" title="Excluir" aria-label="Excluir">✕</button></td>`;
       html += `</tr>`;
     });
     html += `</tbody></table>`;
@@ -1368,7 +1423,7 @@ async function renderUsuarios(){
         <div class="field"><label>Nome</label><input type="text" name="nome" placeholder="Nome do usuário"></div>
         <div class="field"><label>E-mail</label><input type="email" name="email" required placeholder="usuario@empresa.com"></div>
         <div class="field"><label>Senha inicial</label><input type="password" name="senha" required minlength="6" placeholder="Senha segura"></div>
-        <div class="field"><label>Nível</label><select name="papel"><option value="administrador">Administrador</option><option value="visualizador">Visualizador</option></select></div>
+        <div class="field"><label>Nível</label><select name="papel"><option value="administrador">Administrador</option><option value="controle_fracionados">Controle de Fracionados</option><option value="visualizador">Visualizador</option></select></div>
         <div class="field"><label>&nbsp;</label><button class="btn" type="submit">Criar acesso</button></div>
       </form>
       <p class="footnote">Master cria acessos e gerencia usuários. Administrador altera todo o estoque, mas não vê esta tela. Visualizador só consulta.</p>
@@ -1380,7 +1435,7 @@ async function renderUsuarios(){
       html += `<tr>
         <td><strong>${escapeHtml(u.email)}</strong></td>
         <td>${isMaster ? escapeHtml(u.nome||'') : `<input type="text" class="userNome" data-id="${u.user_id}" value="${escapeHtml(u.nome||'')}">`}</td>
-        <td>${isMaster ? '<span class="badge-status st-ok">Master</span>' : `<select class="userPapel" data-id="${u.user_id}"><option value="administrador"${u.papel==='administrador'?' selected':''}>Administrador</option><option value="visualizador"${u.papel==='visualizador'?' selected':''}>Visualizador</option></select>`}</td>
+        <td>${isMaster ? '<span class="badge-status st-ok">Master</span>' : `<select class="userPapel" data-id="${u.user_id}"><option value="administrador"${u.papel==='administrador'?' selected':''}>Administrador</option><option value="controle_fracionados"${u.papel==='controle_fracionados'?' selected':''}>Controle de Fracionados</option><option value="visualizador"${u.papel==='visualizador'?' selected':''}>Visualizador</option></select>`}</td>
         <td>${isMaster ? 'Ativo' : `<select class="userAtivo" data-id="${u.user_id}"><option value="true"${u.ativo?' selected':''}>Ativo</option><option value="false"${!u.ativo?' selected':''}>Bloqueado</option></select>`}</td>
         <td>${isMaster ? '—' : `<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn secondary btnSalvarUsuario" data-id="${u.user_id}">Salvar</button>${u.ativo ? `<button class="btn secondary btnResetSenha" data-id="${u.user_id}" data-email="${escapeHtml(u.email)}">Senha</button>` : ''}<button class="btn secondary btnExcluirUsuario" data-id="${u.user_id}" data-email="${escapeHtml(u.email)}">Excluir</button></div>`}</td>
       </tr>`;

@@ -33,8 +33,8 @@ declare global {
       canEdit: boolean;
       canManageUsers: boolean;
       listUsers: () => Promise<PerfilSistema[]>;
-      createUser: (input: { email: string; senha: string; nome?: string; papel: "administrador" | "visualizador" }) => Promise<unknown>;
-      updateUser: (input: { user_id: string; nome?: string; papel: "administrador" | "visualizador"; ativo: boolean }) => Promise<void>;
+      createUser: (input: { email: string; senha: string; nome?: string; papel: "administrador" | "controle_fracionados" | "visualizador" }) => Promise<unknown>;
+      updateUser: (input: { user_id: string; nome?: string; papel: "administrador" | "controle_fracionados" | "visualizador"; ativo: boolean }) => Promise<void>;
       deleteUser: (input: { user_id: string; motivo?: string }) => Promise<unknown>;
       resetPassword: (input: { user_id: string; senha: string }) => Promise<unknown>;
       listAudit: () => Promise<unknown[]>;

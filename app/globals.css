@@ -351,26 +351,42 @@
 
   @media (max-width:980px){
     body{background:var(--gray-bg);}
-    #topbar{display:none;}
+    #topbar{
+      display:flex;
+      height:58px;
+      position:sticky;
+      top:0;
+      margin-left:0;
+      padding:0 14px;
+      gap:11px;
+      background:linear-gradient(90deg,#151412,#1f1b13);
+      border-bottom:2px solid var(--gold);
+      box-shadow:0 12px 26px rgba(0,0,0,.16);
+      z-index:42;
+      overflow:visible;
+    }
     #topbar .mark{width:112px;height:38px;padding:4px 8px;}
+    #topbar .titles{display:flex;flex-direction:column;min-width:0;}
+    #topbar .titles .t1{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62vw;}
     #topbar .titles .t2{display:none;}
     #topbar .today{font-size:11.5px;padding:5px 9px;}
     #menuToggle{display:block;order:-1;}
 
-    #layout{position:relative;padding-left:0;}
+    #layout{position:relative;padding-left:0;min-height:calc(100vh - 58px);}
     #sidebar{
-      position:fixed;top:0;left:0;bottom:0;z-index:40;
+      position:fixed;top:58px;left:0;bottom:0;z-index:40;
       transform:translateX(-100%);transition:transform .2s ease;
       box-shadow:2px 0 12px rgba(0,0,0,.15);overflow-y:auto;
     }
     #sidebar.open{transform:translateX(0);}
     #sidebarOverlay{
-      display:block;position:fixed;inset:0;background:rgba(0,0,0,.35);
+      display:block;position:fixed;inset:58px 0 0 0;background:rgba(0,0,0,.35);
       z-index:30;opacity:0;pointer-events:none;transition:opacity .2s ease;
     }
     #sidebarOverlay.show{opacity:1;pointer-events:auto;}
     #content{padding:18px;max-width:100%;}
     .dashboard-grid,.alert-strip{grid-template-columns:1fr;}
+    .kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   }
 
   @media (max-width:600px){
@@ -378,7 +394,11 @@
     .card{padding:14px 14px;}
     h1.pagetitle{font-size:19px;}
     form.entryform{grid-template-columns:1fr;}
-    .kpi-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));}
+    .kpi-grid{grid-template-columns:1fr;}
+    .kpi{min-height:88px;padding:15px 16px 15px 68px;}
+    .kpi:after{left:18px;width:34px;height:34px;mask-size:34px 34px;-webkit-mask-size:34px 34px;}
+    .alert-card{padding:16px 18px;}
+    .alert-card:before{width:34px;height:34px;mask-size:34px 34px;-webkit-mask-size:34px 34px;}
     .barrow{flex-wrap:wrap;}
     .barrow .barlabel{width:100%;}
     table{font-size:12.5px;}
