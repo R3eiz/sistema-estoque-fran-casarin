@@ -16,7 +16,7 @@ function destinosCentralOptions(){ return nomesOrdenados(db.locais.filter(l=>l.t
 function destinosFracionadoOptions(){ return nomesOrdenados(db.locais.filter(l=>l.tipo==='Consumidor')); }
 const STORAGE_KEY = "estoqueFranCasarinDB_v1";
 
-const FRACIONADOS_TABS = new Set(['estoque','producoes','saidasFracionado']);
+const FRACIONADOS_TABS = new Set(['estoqueCentral','estoqueFracionados','producoes','saidasFracionado']);
 const FRACIONADOS_EDIT_TABS = new Set(['producoes','saidasFracionado']);
 const PERFIS_SIMULAVEIS = new Set(['master','administrador','controle_fracionados','visualizador']);
 function previewSimulationAllowed(){
@@ -214,7 +214,7 @@ function daysBetween(dateStr){
 function saldoCentral(produto){
   const entradas = sumWhere(db.entradasCentral,'produto',produto,'quantidade');
   const saidas = sumWhere(db.saidasCentral,'produto',produto,'quantidade');
-  const consumoDireto = db.producoes.filter(p=>p.origemEstoque==='central').reduce((a,p)=>p.produtoBruto===produto ? a+Number(p.quantidadeUtilizada||0):a,0);
+  const consumoDireto = db.producoes.reduce((a,p)=>p.produtoBruto===produto ? a+Number(p.quantidadeUtilizada||0):a,0);
   const ajustes = sumWhere(db.ajustesEstoque,'produto',produto,'diferenca');
   return entradas - saidas - consumoDireto + ajustes;
 }
@@ -331,7 +331,7 @@ function setActiveNav(){
 
 /* ============================= RENDER ROOT ============================= */
 function render(){
-  if(!canViewTab(currentTab)) currentTab = isFracionadosAccess() ? 'producoes' : 'dashboard';
+  if(!canViewTab(currentTab)) currentTab = isFracionadosAccess() ? 'estoqueCentral' : 'dashboard';
   document.getElementById('todayLabel').textContent = "Hoje: " + fmtDate(todayStr());
   setActiveNav();
   updateSidebarBadges();
@@ -565,7 +565,7 @@ const defSaidasCentral = {
 };
 
 const defProducoes = {
-  key:'producoes', title:'Entrada de Fracionados', subtitle:'Selecione o fracionado: o bruto de origem e o saldo disponível na cozinha/fracionamento são preenchidos automaticamente.', groupByDate:true,
+  key:'producoes', title:'Entrada de Fracionados', subtitle:'Selecione o fracionado: o bruto de origem e o saldo disponível na Central são preenchidos automaticamente. Apenas a quantidade utilizada será baixada.', groupByDate:true,
   fields:[
     {name:'data', label:'Data', type:'date', default:todayStr},
     {name:'produtoFracionado', label:'Produto Fracionado', type:'select', options:()=>nomesOrdenados(db.fracionados), searchable:true},
@@ -598,8 +598,8 @@ const defProducoes = {
       const f=db.fracionados.find(x=>x.nome===prodSel.value);
       if(!f){hint.textContent='';brutoSel.value='';return;}
       brutoSel.value=f.origem||'';
-      const s = saldoCozinhaBruto(f.origem);
-      hint.textContent = `Disponível na ${getCozinhaNome()}: ${fmtNum(s)} (${f.origem})`;
+      const s = saldoCentral(f.origem);
+      hint.textContent = `Disponível na ${getCentralNome()}: ${fmtNum(s)} (${f.origem})`;
       hint.className = 'hint' + (Number(qtdInput.value||0) > s ? ' warn' : '');
     }
     prodSel.addEventListener('change', update); qtdInput.addEventListener('input', update); update();
@@ -607,16 +607,16 @@ const defProducoes = {
   validate:(row, editIdx)=>{
     if(!row.produtoFracionado) return "Selecione o produto fracionado.";
     const f=db.fracionados.find(x=>x.nome===row.produtoFracionado); if(!f) return "Produto fracionado inválido.";
-    row.produtoBruto=f.origem; row.origemEstoque='cozinha';
+    row.produtoBruto=f.origem; row.origemEstoque='central';
     if(!row.quantidadeUtilizada || row.quantidadeUtilizada<=0) return "Informe a quantidade utilizada.";
     if(!row.quantidadeProduzida || row.quantidadeProduzida<=0) return "Informe a quantidade produzida.";
     if(!row.unidadeProduzida) row.unidadeProduzida = f.unidade;
-    let s = saldoCozinhaBruto(row.produtoBruto);
+    let s = saldoCentral(row.produtoBruto);
     if(editIdx!=null){
       const old = db.producoes[editIdx];
       if(old && old.produtoBruto===row.produtoBruto) s += Number(old.quantidadeUtilizada||0);
     }
-    if(row.quantidadeUtilizada > s) return `Bruto insuficiente na ${getCozinhaNome()}. Disponível: ${fmtNum(s)}.`;
+    if(row.quantidadeUtilizada > s) return `Bruto insuficiente na ${getCentralNome()}. Disponível: ${fmtNum(s)}.`;
     return null;
   }
 };
@@ -954,18 +954,7 @@ function renderEstoqueCentral(){
 function renderEstoqueFracionados(){
   const c = document.getElementById('content');
   let html = `<h1 class="pagetitle">Estoque Fracionados</h1><p class="pagesub">Saldo dos produtos preparados e fracionados, calculado automaticamente.</p>`;
-  html += `<div class="card"><h2>Produtos Brutos - Disponiveis na ${getCozinhaNome()}</h2><table><thead><tr>
-    <th>Produto</th><th>Unidade</th><th>Saldo para Fracionar</th><th>Origem</th><th>Status</th></tr></thead><tbody>`;
-  const brutosComSaldo = [...db.brutos].sort((a,b)=>compareText(a.nome,b.nome)).filter(b=>saldoCozinhaBruto(b.nome)>0);
-  if(brutosComSaldo.length===0){
-    html += `<tr><td colspan="5" class="empty">Nenhum produto bruto disponivel na cozinha. E preciso enviar estoque pela Saida da Central antes de fracionar.</td></tr>`;
-  }
-  brutosComSaldo.forEach(b=>{
-    const s = saldoCozinhaBruto(b.nome);
-    html += `<tr><td><strong>${b.nome}</strong></td><td>${b.unidade}</td><td>${fmtNum(s)}</td><td>${getCozinhaNome()}</td><td><span class="badge-status st-ok">Disponivel</span></td></tr>`;
-  });
-  html += `</tbody></table></div>`;
-  html += `<div class="card"><h2>Produtos Fracionados - Saldo na ${getCozinhaNome()}</h2><table><thead><tr>
+  html += `<div class="card"><h2>Produtos Fracionados - Saldo produzido</h2><table><thead><tr>
     <th>Produto</th><th>Unidade</th><th>Saldo Atual</th><th>Estoque Mínimo</th><th>Status</th></tr></thead><tbody>`;
   [...db.fracionados].sort((a,b)=>compareText(a.nome,b.nome)).forEach(f=>{
     const s = saldoCozinhaFracionado(f.nome);
@@ -1013,7 +1002,7 @@ function getProducaoSugerida(){
   return db.fracionados.map(f=>{
     const saldo = saldoCozinhaFracionado(f.nome);
     const sugestao = Math.max(0, (f.estoqueMinimo||0) - saldo);
-    const brutoDisp = saldoCozinhaBruto(f.origem);
+    const brutoDisp = saldoCentral(f.origem);
     const brutoNecessario = f.rendimento>0 ? sugestao/(f.rendimento/100) : 0;
     return {produto:f.nome, origem:f.origem, saldo, minimo:f.estoqueMinimo||0, sugestao, brutoDisp, brutoNecessario,
       abaixo: saldo<(f.estoqueMinimo||0), brutoSuficiente: brutoDisp>=brutoNecessario};
@@ -1159,7 +1148,7 @@ function renderCompras(){
     html += `<div class="msg-ok">✓ Nenhum fracionado abaixo do estoque mínimo hoje.</div>`;
   } else {
     html += `<table><thead><tr><th>Produto Fracionado</th><th>Origem (Bruto)</th><th>Saldo Atual</th><th>Estoque Mínimo</th>
-      <th>Sugestão de Produção</th><th>Bruto Disponível na Cozinha</th><th>Situação</th><th></th></tr></thead><tbody>`;
+      <th>Sugestão de Produção</th><th>Bruto Disponível na Central</th><th>Situação</th><th></th></tr></thead><tbody>`;
     producao.forEach(x=>{
       const sit = x.brutoSuficiente ? `<span class="badge-status st-ok">✓ Bruto suficiente</span>` : `<span class="badge-status st-bad">⚠ Falta bruto (necessário ≈ ${fmtNum(x.brutoNecessario)})</span>`;
       html += `<tr><td><strong>${x.produto}</strong></td><td>${x.origem}</td><td>${fmtNum(x.saldo)}</td><td>${fmtNum(x.minimo)}</td>
@@ -1271,9 +1260,9 @@ function concluirProducao(produtoFracionado){
   const sugestao = Math.max(0, (f.estoqueMinimo||0) - saldo);
   if(sugestao<=0){ alert('Este item já está acima do estoque mínimo — nada a concluir.'); render(); return; }
   const brutoNecessario = f.rendimento>0 ? sugestao/(f.rendimento/100) : 0;
-  const brutoDisp = saldoCozinhaBruto(f.origem);
+  const brutoDisp = saldoCentral(f.origem);
   if(brutoNecessario > brutoDisp){
-    alert(`Bruto insuficiente na ${getCozinhaNome()} para produzir. Necessário: ${fmtNum(brutoNecessario)}, disponível: ${fmtNum(brutoDisp)}.`);
+    alert(`Bruto insuficiente na ${getCentralNome()} para produzir. Necessário: ${fmtNum(brutoNecessario)}, disponível: ${fmtNum(brutoDisp)}.`);
     return;
   }
   if(!confirm(`Confirmar produção de ${fmtNum(sugestao)} ${f.unidade} de "${produtoFracionado}", consumindo ${fmtNum(brutoNecessario)} de "${f.origem}"?`)) return;
@@ -1284,7 +1273,7 @@ function concluirProducao(produtoFracionado){
     produtoFracionado,
     quantidadeProduzida: sugestao,
     unidadeProduzida: f.unidade,
-    origemEstoque: 'cozinha'
+    origemEstoque: 'central'
   });
   saveDB();
   render();
